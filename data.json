@@ -1,210 +1,215 @@
 {
-  "updated": "2026-11-18T13:40:00+01:00",
-  "date_label": "Mercredi 18 novembre",
-  "alerts": [],
-  "channels": {
-    "piv": {
-      "name": "Partners in Vice",
-      "headline": [
-        "Partners in Vice,",
-        "prêt pour le lancement."
-      ],
-      "summary": "6 publications aujourd'hui, aucune alerte. Demain : les premiers clips de streamers et un Vrai ou faux.",
-      "kpis": [
-        {
-          "platform": "TikTok",
-          "label": "Meilleure vidéo",
-          "detail": "J-2, publiée le 17/11",
-          "value": 719,
-          "unit": "vues",
-          "bar": 0.8
-        },
-        {
-          "platform": "Instagram",
-          "label": "Meilleur Reel",
-          "detail": "J-3, publié le 16/11",
-          "value": 131,
-          "unit": "vues",
-          "bar": 0.2
-        },
-        {
-          "platform": "YouTube",
-          "label": "Meilleur Short",
-          "detail": "Stats en attente",
-          "value": null,
-          "unit": "vues",
-          "bar": 0
-        }
-      ],
-      "followers": {
-        "label": "Abonnés TikTok",
-        "value": 5,
-        "goal": 1000
-      },
-      "today": [
-        {
-          "time": "10:00",
-          "platform": "Instagram",
-          "title": "Guide du lancement",
-          "status": "programmé"
-        },
-        {
-          "time": "13:00",
-          "platform": "TikTok",
-          "title": "Guide du lancement",
-          "status": "programmé"
-        },
-        {
-          "time": "14:00",
-          "platform": "YouTube",
-          "title": "Guide du lancement",
-          "status": "programmé"
-        },
-        {
-          "time": "18:00",
-          "platform": "Instagram",
-          "title": "J-1",
-          "status": "programmé"
-        },
-        {
-          "time": "19:00",
-          "platform": "YouTube",
-          "title": "J-1",
-          "status": "programmé"
-        },
-        {
-          "time": "21:00",
-          "platform": "TikTok",
-          "title": "J-1",
-          "status": "programmé"
-        }
-      ],
-      "upcoming": [
-        {
-          "day": "Jeudi 19",
-          "text": "Lancement : 2 clips de streamers + Vrai ou faux"
-        },
-        {
-          "day": "Samedi 21",
-          "text": "Montage « Bienvenue à Vice City »"
-        }
-      ],
-      "trend": {
-        "labels": [
-          "12/11",
-          "13/11",
-          "14/11",
-          "15/11",
-          "16/11",
-          "17/11",
-          "18/11"
-        ],
-        "series": {
-          "TikTok": [
-            null,
-            null,
-            null,
-            null,
-            null,
-            732,
-            null
-          ],
-          "Instagram": [
-            null,
-            null,
-            null,
-            null,
-            131,
-            null,
-            null
-          ]
-        }
-      },
-      "engagement": {
-        "likes": 30,
-        "comments": 0,
-        "shares": 2,
-        "followers_gain": null
-      },
-      "best_time": null
+ "updated": "2026-11-18T13:40:00+01:00",
+ "date_label": "Mercredi 18 novembre",
+ "alerts": [],
+ "channels": {
+  "piv": {
+   "name": "Partners in Vice",
+   "headline": [
+    "Partners in Vice,",
+    "prêt pour le lancement."
+   ],
+   "summary": "6 publications aujourd'hui, aucune alerte. Demain : les premiers clips de streamers et un Vrai ou faux.",
+   "kpis": [
+    {
+     "platform": "TikTok",
+     "label": "Meilleure vidéo",
+     "detail": "J-2, publiée le 17/11",
+     "value": 719,
+     "unit": "vues",
+     "bar": 0.8
     },
-    "tamko": {
-      "name": "Tamko",
-      "headline": [
-        "Tamko,",
-        "2 vidéos aujourd'hui."
-      ],
-      "summary": "4 publications aujourd'hui sur TikTok et YouTube, aucune alerte.",
-      "kpis": [
-        {
-          "platform": "TikTok",
-          "label": "Meilleure vidéo",
-          "detail": "Stats en attente",
-          "value": null,
-          "unit": "vues",
-          "bar": 0
-        },
-        {
-          "platform": "YouTube",
-          "label": "Meilleur Short",
-          "detail": "Stats en attente",
-          "value": null,
-          "unit": "vues",
-          "bar": 0
-        }
-      ],
-      "followers": {
-        "label": "Abonnés TikTok",
-        "value": null,
-        "goal": 1000
-      },
-      "today": [
-        {
-          "time": "08:00",
-          "platform": "TikTok",
-          "title": "1 ball becomes chaos",
-          "status": "publié"
-        },
-        {
-          "time": "17:00",
-          "platform": "YouTube",
-          "title": "1 ball becomes chaos",
-          "status": "programmé"
-        },
-        {
-          "time": "20:00",
-          "platform": "TikTok",
-          "title": "Alien invasion!",
-          "status": "programmé"
-        },
-        {
-          "time": "22:00",
-          "platform": "YouTube",
-          "title": "Alien invasion!",
-          "status": "programmé"
-        }
-      ],
-      "upcoming": [
-        {
-          "day": "Demain",
-          "text": "2 nouvelles vidéos arcade"
-        }
-      ],
-      "trend": null,
-      "engagement": {
-        "likes": null,
-        "comments": null,
-        "shares": null,
-        "followers_gain": null
-      },
-      "best_time": null
+    {
+     "platform": "Instagram",
+     "label": "Meilleur Reel",
+     "detail": "J-3, publié le 16/11",
+     "value": 131,
+     "unit": "vues",
+     "bar": 0.2
+    },
+    {
+     "platform": "YouTube",
+     "label": "Meilleur Short",
+     "detail": "Stats en attente",
+     "value": null,
+     "unit": "vues",
+     "bar": 0
     }
+   ],
+   "followers": {
+    "label": "Abonnés TikTok",
+    "value": 5,
+    "goal": 1000
+   },
+   "today": [
+    {
+     "time": "10:00",
+     "platform": "Instagram",
+     "title": "Guide du lancement",
+     "status": "programmé"
+    },
+    {
+     "time": "13:00",
+     "platform": "TikTok",
+     "title": "Guide du lancement",
+     "status": "programmé"
+    },
+    {
+     "time": "14:00",
+     "platform": "YouTube",
+     "title": "Guide du lancement",
+     "status": "programmé"
+    },
+    {
+     "time": "18:00",
+     "platform": "Instagram",
+     "title": "J-1",
+     "status": "programmé"
+    },
+    {
+     "time": "19:00",
+     "platform": "YouTube",
+     "title": "J-1",
+     "status": "programmé"
+    },
+    {
+     "time": "21:00",
+     "platform": "TikTok",
+     "title": "J-1",
+     "status": "programmé"
+    }
+   ],
+   "upcoming": [
+    {
+     "day": "Jeudi 19",
+     "text": "Lancement : 2 clips de streamers + Vrai ou faux"
+    },
+    {
+     "day": "Samedi 21",
+     "text": "Montage « Bienvenue à Vice City »"
+    }
+   ],
+   "trend": {
+    "labels": [
+     "12/11",
+     "13/11",
+     "14/11",
+     "15/11",
+     "16/11",
+     "17/11",
+     "18/11"
+    ],
+    "series": {
+     "TikTok": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      732,
+      null
+     ],
+     "Instagram": [
+      null,
+      null,
+      null,
+      null,
+      131,
+      null,
+      null
+     ]
+    }
+   },
+   "engagement": {
+    "likes": 30,
+    "comments": 0,
+    "shares": 2,
+    "followers_gain": null
+   },
+   "best_time": null
   },
-  "keywords": {
-    "piv": {
-      "hashtags": "#gta6 #gtavi #gta6gameplay #grandtheftauto6 #gta6fr #gta6français #gta6infos #gta6nouveautés #vicecity #leonida #gta6map #gta6lucia #gta6cars #gta6news #gta6online #rockstargames #gta6ps5 #gaming #gamingfr #jeuxvidéo #ps5 #xboxseriesx",
-      "tags": "gta 6, gta vi, grand theft auto 6, gta 6 gameplay, gta 6 fr, gta 6 français, gta 6 infos, gta 6 nouveautés, vice city, gta 6 vice city, leonida, gta 6 map, carte gta 6, gta 6 lucia, gta 6 cars, gta 6 news, gta 6 online, rockstar games, gta 6 ps5, jeux vidéo, gaming, gameplay, ps5, xbox series x",
-      "rule": "Par post : 1 cœur (#gta6, #gtavi, #gta6gameplay, #grandtheftauto6) + 2 thème + 1 FR + 1 niche. Jamais la même combinaison deux fois de suite. Jamais #shorts."
+  "tamko": {
+   "name": "Tamko",
+   "headline": [
+    "Tamko,",
+    "2 vidéos aujourd'hui."
+   ],
+   "summary": "4 publications aujourd'hui sur TikTok et YouTube, aucune alerte.",
+   "kpis": [
+    {
+     "platform": "TikTok",
+     "label": "Meilleure vidéo",
+     "detail": "Stats en attente",
+     "value": null,
+     "unit": "vues",
+     "bar": 0
+    },
+    {
+     "platform": "YouTube",
+     "label": "Meilleur Short",
+     "detail": "Stats en attente",
+     "value": null,
+     "unit": "vues",
+     "bar": 0
     }
+   ],
+   "followers": {
+    "label": "Abonnés TikTok",
+    "value": null,
+    "goal": 1000
+   },
+   "today": [
+    {
+     "time": "08:00",
+     "platform": "TikTok",
+     "title": "1 ball becomes chaos",
+     "status": "publié"
+    },
+    {
+     "time": "17:00",
+     "platform": "YouTube",
+     "title": "1 ball becomes chaos",
+     "status": "programmé"
+    },
+    {
+     "time": "20:00",
+     "platform": "TikTok",
+     "title": "Alien invasion!",
+     "status": "programmé"
+    },
+    {
+     "time": "22:00",
+     "platform": "YouTube",
+     "title": "Alien invasion!",
+     "status": "programmé"
+    }
+   ],
+   "upcoming": [
+    {
+     "day": "Demain",
+     "text": "2 nouvelles vidéos arcade"
+    }
+   ],
+   "trend": null,
+   "engagement": {
+    "likes": null,
+    "comments": null,
+    "shares": null,
+    "followers_gain": null
+   },
+   "best_time": null
   }
+ },
+ "keywords": {
+  "piv": {
+   "hashtags": "#gta6 #gtavi #gta6gameplay #grandtheftauto6 #gta6fr #gta6français #gta6infos #gta6nouveautés #vicecity #leonida #gta6map #gta6lucia #gta6cars #gta6news #gta6online #rockstargames #gta6ps5 #gaming #gamingfr #jeuxvidéo #ps5 #xboxseriesx",
+   "tags": "gta 6, gta vi, grand theft auto 6, gta 6 gameplay, gta 6 fr, gta 6 français, gta 6 infos, gta 6 nouveautés, vice city, gta 6 vice city, leonida, gta 6 map, carte gta 6, gta 6 lucia, gta 6 cars, gta 6 news, gta 6 online, rockstar games, gta 6 ps5, jeux vidéo, gaming, gameplay, ps5, xbox series x",
+   "rule": "Par post : 1 cœur (#gta6, #gtavi, #gta6gameplay, #grandtheftauto6) + 2 thème + 1 FR + 1 niche. Jamais la même combinaison deux fois de suite. Jamais #shorts."
+  },
+  "tamko": {
+   "hashtags": "#arcade #gameplay #retrogames #mobilegames #simulatorgames #classicarcade #satisfyingvideo #satisfyingsimulation #relaxingvideo #physicssimulation #bouncingball #2dphysics #marblerace #marblerun #algodoo #countryballs #countrybattle #battleroyale #ballescape #spinningrings #willitescape #rockpaperscissors #domino #dominoesfalling #rubegoldberg #spaceinvaders #spaceinvadersgameplay #cargame #carracinggame #whowouldwin",
+   "tags": "arcade, gameplay, retro games, classic arcade games, mobile games, simulator games, satisfying video, satisfying simulation, satisfying animation, relaxing video, physics simulation, 2d physics, bouncing ball, marble race, marble run, marble racing, algodoo marble race, countryballs, country battle, countries marble race, battle royale, ball escape, spinning rings, escape the circle, will it escape, rock paper scissors, rock paper scissors simulation, domino, dominoes falling, rube goldberg, space invaders, space invaders gameplay, space invaders arcade, car game, car race game, car racing game, who would win",
+   "rule": "Par post : 3 hashtags du format + 1 large (#arcade, #gameplay, #retrogames, #mobilegames ou #simulatorgames). Tags YouTube : ceux du format + 3 à 4 génériques. À éviter : #minigame, #arcadegames, #lastonestanding, #oddlysatisfying, #bouncingballs (bloqué par TikTok)."
+  }
+ }
 }
