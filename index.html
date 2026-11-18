@@ -84,6 +84,13 @@ footer{font-size:12px;color:var(--mute);text-align:center}
 <div class="card"><h2>Engagement (7 jours)</h2><div id="eng" style="display:grid;grid-template-columns:1fr 1fr;gap:12px"></div></div>
 </section>
 
+<section class="card" id="kwcard" style="display:none"><h2>Hashtags & tags</h2>
+<p id="kwrule" style="font-size:13px;color:var(--mute);margin:0 0 12px"></p>
+<div style="display:flex;justify-content:space-between;align-items:center;gap:8px"><strong style="font-weight:500;font-size:14px">Hashtags (Instagram, TikTok, YouTube)</strong><button data-copy="kwh" style="min-height:40px;padding:0 16px;border-radius:20px;border:1px solid var(--line);background:#fff;font:inherit;font-size:13px;cursor:pointer">Copier</button></div>
+<p id="kwh" style="font-size:14px;line-height:1.7;color:var(--navy);margin:8px 0 18px"></p>
+<div style="display:flex;justify-content:space-between;align-items:center;gap:8px"><strong style="font-weight:500;font-size:14px">Tags YouTube (séparés par des virgules)</strong><button data-copy="kwt" style="min-height:40px;padding:0 16px;border-radius:20px;border:1px solid var(--line);background:#fff;font:inherit;font-size:13px;cursor:pointer">Copier</button></div>
+<p id="kwt" style="font-size:14px;line-height:1.7;color:var(--soft);margin:8px 0 0"></p>
+</section>
 <footer id="updated"></footer>
 </div>
 <script>
@@ -116,6 +123,12 @@ function liveStatus(t){
  const [h,m]=t.time.split(':').map(Number),n=new Date();
  return (n.getHours()*60+n.getMinutes())>=(h*60+m+5)?'publié':'programmé';
 }
+function kw(){
+ const k=(data.keywords||{})[cur],box=document.getElementById('kwcard');
+ if(!k){box.style.display='none';return} box.style.display='block';
+ document.getElementById('kwrule').textContent=k.rule;document.getElementById('kwh').textContent=k.hashtags;document.getElementById('kwt').textContent=k.tags;
+ box.querySelectorAll('[data-copy]').forEach(b=>b.onclick=()=>{navigator.clipboard.writeText(document.getElementById(b.dataset.copy).textContent).then(()=>{b.textContent='Copié ✓';setTimeout(()=>b.textContent='Copier',1500)})});
+}
 function render(){
  const c=data.channels[cur];
  document.getElementById('tabs').innerHTML=Object.entries(data.channels).map(([k,v])=>`<button role="tab" aria-selected="${k===cur}" data-k="${k}">${esc(v.name)}</button>`).join('');
@@ -130,7 +143,7 @@ function render(){
  const f=c.followers;
  k.push(`<div class="card kpi"><div class="top"><span class="tag" style="background:#E8ECF4;color:#273869">Communauté</span></div><h3>${esc(f.label)}</h3><span class="detail">Objectif ${f.goal.toLocaleString('fr-FR')}</span><div class="num"><span>${f.value==null?'—':f.value.toLocaleString('fr-FR')}</span><span>/ ${f.goal.toLocaleString('fr-FR')}</span></div><div class="bar"><i style="width:${f.value?Math.max(2,Math.round(f.value/f.goal*100)):0}%;background:repeating-linear-gradient(115deg,#273869 0 2px,transparent 2px 6px)"></i></div></div>`);
  document.getElementById('kpis').innerHTML=k.join('');
- chart(c);eng(c);
+ chart(c);eng(c);kw();
  document.getElementById('today').innerHTML=c.today.map(t=>`<div class="row"><b style="font-weight:500">${esc(t.time)}</b><span>${esc(t.title)}</span><span class="tag ${t.platform}">${t.platform}</span>${(st=>`<span class="st status ${esc(st)}">● ${esc(st)}</span>`)(liveStatus(t))}</div>`).join('');
  document.getElementById('upcoming').innerHTML=c.upcoming.map(u=>`<div class="up"><b>${esc(u.day)}</b><span>${esc(u.text)}</span></div>`).join('');
  document.getElementById('updated').textContent='Mis à jour le '+new Date(data.updated).toLocaleString('fr-FR',{dateStyle:'long',timeStyle:'short'});

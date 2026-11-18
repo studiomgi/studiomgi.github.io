@@ -23,3 +23,5 @@ Champs supplémentaires (données Zernio / Buffer, sans recherche coûteuse) :
 - `engagement` : {likes, comments, shares, followers_gain} sur 7 jours (null si inconnu). followers_gain via `accounts_get_follower_stats` de Zernio.
 - `best_time` : « HH:MM » via `analytics_get_best_time_to_post` de Zernio (null si non disponible).
 Un seul appel par source et par jour : ne jamais paginer longuement ni rappeler la même chose.
+
+`keywords` (racine) : listes de hashtags et de tags par chaîne, maintenues à la main. Les tâches ne doivent JAMAIS les supprimer ni les modifier.
