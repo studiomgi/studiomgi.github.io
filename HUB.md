@@ -17,3 +17,9 @@ Format d'une chaîne :
 - `today` : posts du jour, triés par heure : {time "HH:MM", platform, title, status : "programmé"|"publié"|"échec"}.
 - `upcoming` : 1 à 3 lignes {day, text}.
 N'inventer aucun chiffre : null s'il est inconnu.
+
+Champs supplémentaires (données Zernio / Buffer, sans recherche coûteuse) :
+- `trend` : {labels: ["12/11", …] (7 derniers jours), series: {"TikTok": [vues/jour…], "Instagram": […], "YouTube": […]}}. TikTok via `analytics_get_daily_metrics` de Zernio (compte de la chaîne), Instagram et YouTube via les métriques Buffer, regroupées par jour. Mettre null pour un jour inconnu, et laisser une plateforme absente si elle n'a aucune donnée.
+- `engagement` : {likes, comments, shares, followers_gain} sur 7 jours (null si inconnu). followers_gain via `accounts_get_follower_stats` de Zernio.
+- `best_time` : « HH:MM » via `analytics_get_best_time_to_post` de Zernio (null si non disponible).
+Un seul appel par source et par jour : ne jamais paginer longuement ni rappeler la même chose.

@@ -68,6 +68,10 @@ footer{font-size:12px;color:var(--mute);text-align:center}
 <div id="alerts"></div>
 <section class="kpis" id="kpis"></section>
 <section class="grid2">
+<div class="card"><h2>Vues sur 7 jours</h2><div id="legend" style="display:flex;gap:14px;font-size:12px;color:var(--mute);margin-bottom:8px"></div><div id="chart"></div></div>
+<div class="card"><h2>Engagement (7 jours)</h2><div id="eng" style="display:grid;grid-template-columns:1fr 1fr;gap:12px"></div></div>
+</section>
+<section class="grid2">
 <div class="card"><h2>Planning du jour</h2><div id="today"></div></div>
 <div class="card"><h2>À venir</h2><div id="upcoming"></div></div>
 </section>
@@ -77,6 +81,25 @@ footer{font-size:12px;color:var(--mute);text-align:center}
 const COL={TikTok:'#111111',Instagram:'#C1357A',YouTube:'#D9261C'};
 let data,cur='piv';
 function esc(s){return String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]))}
+
+function chart(c){
+ const t=c.trend, el=document.getElementById('chart'), lg=document.getElementById('legend');
+ if(!t||!t.labels||!t.labels.length){el.innerHTML='<p style="font-size:13px;color:var(--mute);margin:24px 0">La courbe s\'affichera dès les premières statistiques.</p>';lg.innerHTML='';return}
+ const W=640,H=200,P=28,n=t.labels.length,keys=Object.keys(t.series).filter(k=>t.series[k]&&t.series[k].some(v=>v!=null));
+ const max=Math.max(1,...keys.flatMap(k=>t.series[k].filter(v=>v!=null)));
+ const x=i=>P+(W-2*P)*(n<2?0.5:i/(n-1)), y=v=>H-P-(H-2*P)*(v/max);
+ let g='';for(let j=0;j<=3;j++){const yy=P+(H-2*P)*j/3;g+=`<line x1="${P}" x2="${W-P}" y1="${yy}" y2="${yy}" stroke="#E6E9EF"/><text x="2" y="${yy+4}" font-size="10" fill="#5C6579">${Math.round(max*(1-j/3))}</text>`}
+ t.labels.forEach((l,i)=>g+=`<text x="${x(i)}" y="${H-6}" font-size="10" fill="#5C6579" text-anchor="middle">${esc(l)}</text>`);
+ keys.forEach(k=>{const pts=t.series[k].map((v,i)=>v==null?null:[x(i),y(v)]).filter(Boolean);g+=`<polyline fill="none" stroke="${COL[k]}" stroke-width="2.2" points="${pts.map(p=>p.join(',')).join(' ')}"/>`+pts.map(p=>`<circle cx="${p[0]}" cy="${p[1]}" r="3" fill="#fff" stroke="${COL[k]}" stroke-width="2"/>`).join('')});
+ el.innerHTML=`<svg viewBox="0 0 ${W} ${H}" width="100%" role="img" aria-label="Vues par jour sur 7 jours">${g}</svg>`;
+ lg.innerHTML=keys.map(k=>`<span><i style="display:inline-block;width:10px;height:10px;border-radius:5px;background:${COL[k]};margin-right:6px"></i>${k}</span>`).join('');
+}
+function eng(c){
+ const e=c.engagement||{}, f=(v)=>v==null?'—':Number(v).toLocaleString('fr-FR');
+ const items=[['Likes',e.likes],['Commentaires',e.comments],['Partages',e.shares],['Nouveaux abonnés',e.followers_gain]];
+ document.getElementById('eng').innerHTML=items.map(([l,v])=>`<div style="background:#F5F7FA;border-radius:16px;padding:14px"><div style="font-size:12px;color:var(--mute)">${l}</div><div style="font-weight:300;font-size:30px;margin-top:6px">${f(v)}</div></div>`).join('')+(c.best_time?`<div style="grid-column:1/3;font-size:13px;color:var(--soft)">Meilleur créneau observé : <b style="font-weight:600;color:var(--navy)">${esc(c.best_time)}</b></div>`:'');
+}
+
 function render(){
  const c=data.channels[cur];
  document.getElementById('tabs').innerHTML=Object.entries(data.channels).map(([k,v])=>`<button role="tab" aria-selected="${k===cur}" data-k="${k}">${esc(v.name)}</button>`).join('');
@@ -91,6 +114,7 @@ function render(){
  const f=c.followers;
  k.push(`<div class="card kpi"><div class="top"><span class="tag" style="background:#E8ECF4;color:#273869">Communauté</span></div><h3>${esc(f.label)}</h3><span class="detail">Objectif ${f.goal.toLocaleString('fr-FR')}</span><div class="num"><span>${f.value==null?'—':f.value.toLocaleString('fr-FR')}</span><span>/ ${f.goal.toLocaleString('fr-FR')}</span></div><div class="bar"><i style="width:${f.value?Math.max(2,Math.round(f.value/f.goal*100)):0}%;background:repeating-linear-gradient(115deg,#273869 0 2px,transparent 2px 6px)"></i></div></div>`);
  document.getElementById('kpis').innerHTML=k.join('');
+ chart(c);eng(c);
  document.getElementById('today').innerHTML=c.today.map(t=>`<div class="row"><b style="font-weight:500">${esc(t.time)}</b><span>${esc(t.title)}</span><span class="tag ${t.platform}">${t.platform}</span><span class="st status ${esc(t.status)}">● ${esc(t.status)}</span></div>`).join('');
  document.getElementById('upcoming').innerHTML=c.upcoming.map(u=>`<div class="up"><b>${esc(u.day)}</b><span>${esc(u.text)}</span></div>`).join('');
  document.getElementById('updated').textContent='Mis à jour le '+new Date(data.updated).toLocaleString('fr-FR',{dateStyle:'long',timeStyle:'short'});
