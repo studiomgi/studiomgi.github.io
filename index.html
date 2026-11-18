@@ -135,7 +135,7 @@ function render(){
  document.getElementById('upcoming').innerHTML=c.upcoming.map(u=>`<div class="up"><b>${esc(u.day)}</b><span>${esc(u.text)}</span></div>`).join('');
  document.getElementById('updated').textContent='Mis à jour le '+new Date(data.updated).toLocaleString('fr-FR',{dateStyle:'long',timeStyle:'short'});
 }
-const HASH='';
+const HASH='07949f49ae2384c34ca7d5470e5df851ece481869440028d6189237785bf0bda';
 async function sha(t){const b=await crypto.subtle.digest('SHA-256',new TextEncoder().encode(t));return [...new Uint8Array(b)].map(x=>x.toString(16).padStart(2,'0')).join('')}
 function load(){fetch('data.json?'+Date.now()).then(r=>r.json()).then(d=>{data=d;render()}).catch(()=>{document.getElementById('summary').textContent='Données indisponibles pour le moment.'})}
 (function(){let ok=!HASH;try{ok=ok||localStorage.getItem('hub_ok')===HASH}catch(e){}
