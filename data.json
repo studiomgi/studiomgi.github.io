@@ -1,0 +1,49 @@
+{
+  "updated": "2026-11-18T13:15:00+01:00",
+  "date_label": "Mercredi 18 novembre",
+  "alerts": [],
+  "channels": {
+    "piv": {
+      "name": "Partners in Vice",
+      "headline": ["Partners in Vice,", "prêt pour le lancement."],
+      "summary": "6 publications aujourd'hui, aucune alerte. Demain : les premiers clips de streamers et un Vrai ou faux.",
+      "kpis": [
+        {"platform": "TikTok", "label": "Meilleure vidéo", "detail": "J-2, publiée le 17/11", "value": 719, "unit": "vues", "bar": 0.8},
+        {"platform": "Instagram", "label": "Meilleur Reel", "detail": "J-3, publié le 16/11", "value": 131, "unit": "vues", "bar": 0.2},
+        {"platform": "YouTube", "label": "Meilleur Short", "detail": "Stats en attente", "value": null, "unit": "vues", "bar": 0}
+      ],
+      "followers": {"label": "Abonnés TikTok", "value": 5, "goal": 1000},
+      "today": [
+        {"time": "10:00", "platform": "Instagram", "title": "Guide du lancement", "status": "programmé"},
+        {"time": "13:00", "platform": "TikTok", "title": "Guide du lancement", "status": "programmé"},
+        {"time": "14:00", "platform": "YouTube", "title": "Guide du lancement", "status": "programmé"},
+        {"time": "18:00", "platform": "Instagram", "title": "J-1", "status": "programmé"},
+        {"time": "19:00", "platform": "YouTube", "title": "J-1", "status": "programmé"},
+        {"time": "21:00", "platform": "TikTok", "title": "J-1", "status": "programmé"}
+      ],
+      "upcoming": [
+        {"day": "Jeudi 19", "text": "Lancement : 2 clips de streamers + Vrai ou faux"},
+        {"day": "Samedi 21", "text": "Montage « Bienvenue à Vice City »"}
+      ]
+    },
+    "tamko": {
+      "name": "Tamko",
+      "headline": ["Tamko,", "2 vidéos aujourd'hui."],
+      "summary": "4 publications aujourd'hui sur TikTok et YouTube, aucune alerte.",
+      "kpis": [
+        {"platform": "TikTok", "label": "Meilleure vidéo", "detail": "Stats en attente", "value": null, "unit": "vues", "bar": 0},
+        {"platform": "YouTube", "label": "Meilleur Short", "detail": "Stats en attente", "value": null, "unit": "vues", "bar": 0}
+      ],
+      "followers": {"label": "Abonnés TikTok", "value": null, "goal": 1000},
+      "today": [
+        {"time": "08:00", "platform": "TikTok", "title": "1 ball becomes chaos", "status": "publié"},
+        {"time": "17:00", "platform": "YouTube", "title": "1 ball becomes chaos", "status": "programmé"},
+        {"time": "20:00", "platform": "TikTok", "title": "Alien invasion!", "status": "programmé"},
+        {"time": "22:00", "platform": "YouTube", "title": "Alien invasion!", "status": "programmé"}
+      ],
+      "upcoming": [
+        {"day": "Demain", "text": "2 nouvelles vidéos arcade"}
+      ]
+    }
+  }
+}
