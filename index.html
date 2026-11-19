@@ -141,7 +141,8 @@ function kw(){
 }
 function drafts(){
  const w=(data.channels[cur]||{}).drafts||[],box=document.getElementById('draftcard');
- if(!w.length){box.style.display='none';return} box.style.display='block';
+ box.style.display='block';
+ if(!w.length){document.getElementById('drafts').innerHTML='<p style="margin:0;font-size:13px;color:var(--mute)">Aucun brouillon en attente. Les prochains arrivent avec la tâche du matin.</p>';return}
  document.getElementById('drafts').innerHTML=w.map((x,i)=>`<div style="padding:12px 0;border-top:${i?'1px solid var(--line)':'0'}"><div style="display:flex;justify-content:space-between;gap:10px"><strong style="font-weight:500;color:var(--navy)">${esc(x.time)} · ${esc(x.label)}</strong><span style="font-size:12px;color:var(--mute)">${esc(x.status||'à publier')}</span></div><div style="display:flex;gap:8px;align-items:center;margin-top:6px"><p id="dc${i}" style="flex:1;margin:0;font-size:13px;color:var(--soft);white-space:pre-line">${esc(x.caption)}</p><button data-dc="dc${i}" style="min-height:40px;padding:0 14px;border-radius:20px;border:1px solid var(--line);background:#fff;font:inherit;font-size:13px;cursor:pointer">Copier</button></div></div>`).join('');
  box.querySelectorAll('[data-dc]').forEach(b=>b.onclick=()=>navigator.clipboard.writeText(document.getElementById(b.dataset.dc).textContent).then(()=>{b.textContent='Copié ✓';setTimeout(()=>b.textContent='Copier',1500)}));
 }
