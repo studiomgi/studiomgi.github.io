@@ -1,6 +1,6 @@
 {
- "updated": "2026-11-18T13:40:00+01:00",
- "date_label": "Mercredi 18 novembre",
+ "updated": "2026-11-19T06:25:00+01:00",
+ "date_label": "Jeudi 19 novembre",
  "alerts": [],
  "channels": {
   "piv": {
@@ -134,60 +134,60 @@
     "Tamko,",
     "2 vidéos aujourd'hui."
    ],
-   "summary": "4 publications aujourd'hui sur TikTok et YouTube, aucune alerte.",
+   "summary": "Course de coureurs et dominos aujourd'hui sur TikTok et YouTube. Depuis le lancement : 5 483 vues TikTok et 3 428 vues YouTube.",
    "kpis": [
     {
      "platform": "TikTok",
      "label": "Meilleure vidéo",
-     "detail": "Stats en attente",
-     "value": null,
+     "detail": "Ball escape, publiée le 15/11",
+     "value": 932,
      "unit": "vues",
-     "bar": 0
+     "bar": 0.85
     },
     {
      "platform": "YouTube",
      "label": "Meilleur Short",
-     "detail": "Stats en attente",
-     "value": null,
+     "detail": "Course de voitures, publié le 16/11",
+     "value": 1097,
      "unit": "vues",
-     "bar": 0
+     "bar": 1.0
     }
    ],
    "followers": {
     "label": "Abonnés TikTok",
-    "value": null,
+    "value": 1,
     "goal": 1000
    },
    "today": [
     {
      "time": "08:00",
      "platform": "TikTok",
-     "title": "1 ball becomes chaos",
-     "status": "publié"
+     "title": "10 tiny runners, 1 winner",
+     "status": "programmé"
     },
     {
      "time": "17:00",
      "platform": "YouTube",
-     "title": "1 ball becomes chaos",
+     "title": "Tiny race, big drama",
      "status": "programmé"
     },
     {
      "time": "20:00",
      "platform": "TikTok",
-     "title": "Alien invasion!",
+     "title": "The most satisfying chain reaction?",
      "status": "programmé"
     },
     {
      "time": "22:00",
      "platform": "YouTube",
-     "title": "Alien invasion!",
+     "title": "Will ALL the dominoes fall?",
      "status": "programmé"
     }
    ],
    "upcoming": [
     {
-     "day": "Demain",
-     "text": "2 nouvelles vidéos arcade"
+     "day": "Vendredi 20",
+     "text": "Survival (TikTok 08:00, YouTube 17:00) et course de canards (TikTok 20:00, YouTube 22:00)"
     }
    ],
    "trend": null,
