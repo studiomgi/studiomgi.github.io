@@ -163,31 +163,35 @@
      "time": "08:00",
      "platform": "TikTok",
      "title": "10 tiny runners, 1 winner",
-     "status": "programmé"
+     "status": "publié"
     },
     {
      "time": "17:00",
      "platform": "YouTube",
      "title": "Tiny race, big drama",
-     "status": "programmé"
+     "status": "publié"
     },
     {
      "time": "20:00",
      "platform": "TikTok",
      "title": "The most satisfying chain reaction?",
-     "status": "programmé"
+     "status": "publié"
     },
     {
      "time": "22:00",
      "platform": "YouTube",
      "title": "Will ALL the dominoes fall?",
-     "status": "programmé"
+     "status": "refusé (limite YouTube), reporté au 21/11 18:00"
     }
    ],
    "upcoming": [
     {
      "day": "Vendredi 20",
-     "text": "Survival (TikTok 08:00, YouTube 17:00) et course de canards (TikTok 20:00, YouTube 22:00)"
+     "text": "Survival (TikTok 08:00, YouTube 17:00), nouveau créneau TikTok 13:00, course de canards (TikTok 20:00, YouTube 22:00)"
+    },
+    {
+     "day": "Samedi 21",
+     "text": "3 TikTok (08:00, 13:00, 20:00). YouTube : dominos 18:00 puis 22:00"
     }
    ],
    "trend": null,
@@ -249,6 +253,9 @@
      "url": "https://www.tiktok.com/tag/whowouldwin",
      "comment": "Called it from the first second 😎"
     }
+   ],
+   "alerts": [
+    "YouTube limite à 2 Shorts par 24 h glissantes : 2 Shorts par jour (10:00 et 22:00)"
    ]
   }
  },
