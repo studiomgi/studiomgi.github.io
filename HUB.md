@@ -28,3 +28,4 @@ Champs supplémentaires (données Zernio / Buffer, sans recherche coûteuse) :
 Un seul appel par source et par jour : ne jamais paginer longuement ni rappeler la même chose.
 
 `keywords` (racine) : listes de hashtags et de tags par chaîne, maintenues à la main. Les tâches ne doivent JAMAIS les supprimer ni les modifier.
+- `warmup` (Tamko) : liste fixe de liens de chauffe TikTok (créateurs et hashtags de la niche, avec un commentaire à copier). Les tâches quotidiennes n'y touchent pas.
