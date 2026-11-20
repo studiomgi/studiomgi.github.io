@@ -162,26 +162,32 @@
     {
      "time": "08:00",
      "platform": "TikTok",
-     "title": "10 tiny runners, 1 winner",
+     "title": "Survival (ancienne charte)",
      "status": "publié"
+    },
+    {
+     "time": "13:00",
+     "platform": "TikTok",
+     "title": "Pick your side (territoire)",
+     "status": "programmé"
     },
     {
      "time": "17:00",
      "platform": "YouTube",
-     "title": "Tiny race, big drama",
-     "status": "publié"
+     "title": "Which side takes over? 🎨💀",
+     "status": "programmé"
     },
     {
      "time": "20:00",
      "platform": "TikTok",
-     "title": "The most satisfying chain reaction?",
-     "status": "publié"
+     "title": "TRAPPED or FREE? (labyrinthe)",
+     "status": "programmé"
     },
     {
      "time": "22:00",
      "platform": "YouTube",
-     "title": "Will ALL the dominoes fall?",
-     "status": "refusé (limite YouTube), reporté au 21/11 18:00"
+     "title": "Wait for the timer 💀 Trapped or free?",
+     "status": "programmé"
     }
    ],
    "upcoming": [
