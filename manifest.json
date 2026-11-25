@@ -3,8 +3,8 @@
  "short_name": "HUB MGI",
  "start_url": "/",
  "display": "standalone",
- "background_color": "#FF5608",
- "theme_color": "#FF5608",
+ "background_color": "#242424",
+ "theme_color": "#242424",
  "icons": [
   {
    "src": "icon-192.png",
