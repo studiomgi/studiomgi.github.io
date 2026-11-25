@@ -100,7 +100,7 @@ svg text{font-family:var(--mono)}
 
 <section id="insec"><p class="k">Ce qui marche</p><h2>Ce que les gens veulent voir</h2>
 <div class="grid g2">
-<div class="panel"><div class="ph"><b>Par streamer</b><span>vues moyennes</span></div><div id="streamers"></div></div>
+<div class="panel"><div class="ph"><b id="grpt">Par streamer</b><span>vues moyennes</span></div><div id="streamers"></div></div>
 <div class="panel"><div class="ph"><b>Par format et créneau</b><span>vues moyennes</span></div><div id="formats"></div></div>
 </div>
 <div class="grid" style="margin-top:12px">
@@ -169,7 +169,7 @@ function bars(list){
 function insights(c){
  const s=c.insights,sec=document.getElementById('insec');
  if(!s){sec.style.display='none';document.getElementById('verdict').style.display='none';return} sec.style.display='block';
- document.getElementById('streamers').innerHTML=bars(s.streamers);
+ document.getElementById('grpt').textContent=s.groups_title||'Par streamer';document.getElementById('streamers').innerHTML=bars(s.streamers);
  document.getElementById('formats').innerHTML=bars(s.formats)+'<div style="height:12px"></div>'+bars(s.slots);
  const tk=s.takeaways||[];document.getElementById('verdict').style.display=tk.length?'block':'none';document.getElementById('takeaways').innerHTML=tk.map(t=>`<p>${esc(t)}</p>`).join('');
  document.getElementById('top').innerHTML=(s.top||[]).map((v,i)=>`<div class="vid"><span class="r">${i+1}</span><span>${esc(v.title)}<small>${esc(v.detail)}</small></span><span class="v">${fr(v.views)}</span></div>`).join('');
