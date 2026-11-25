@@ -143,7 +143,7 @@ function stats(c){
   const pct=g.views_prev_7d?Math.round((g.views_7d-g.views_prev_7d)/g.views_prev_7d*100):null;
   cards=[[fr(g.followers),'Abonnés TikTok',`objectif ${fr(g.goal)}`,g.followers_note||''],
    [fr(g.views_7d),'Vues sur 7 jours',pct==null?'':(pct>=0?'+':'')+pct+' %','vs 7 jours précédents'],
-   [fr(g.avg_views),'Vues moyennes par vidéo',g.avg_watch?g.avg_watch+' s regardées':'',g.avg_note||'']];
+   [fr(g.avg_views),'Vues moyennes par vidéo',g.avg_watch?fr(g.avg_watch)+' s regardées':'',g.avg_note||'']];
  } else cards=[[fr(f.value),f.label||'Abonnés','objectif '+fr(f.goal),'']];
  document.getElementById('stats').innerHTML=cards.map(([n,l,r,d])=>`<div class="stat"><div class="n">${n}</div><div><div class="l"><span>${esc(l)}</span><span>${esc(r)}</span></div><div class="d">${esc(d)}</div></div></div>`).join('');
 }
