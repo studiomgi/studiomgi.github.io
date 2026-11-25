@@ -94,8 +94,8 @@ svg text{font-family:var(--mono)}
 <section id="draftsec"><p class="k">Brouillons TikTok à publier</p><div class="panel" id="drafts"></div></section>
 
 <section><h2 id="evo-title">Évolution</h2>
-<div class="grid g3" id="stats"></div>
-<div class="panel" style="margin-top:12px"><div class="ph"><b>Vues par jour</b><span>7 derniers jours · TikTok · <span style="color:var(--acc)">■</span> meilleur jour</span></div><div id="chart"></div></div>
+<div class="grid g2" id="stats"></div>
+<div class="panel" style="margin-top:12px"><div class="ph"><b>Vues par jour</b><span>TikTok · <span style="color:var(--acc)">■</span> meilleur jour</span></div><div id="chart"></div></div>
 </section>
 
 <section id="insec"><p class="k">Ce qui marche</p><h2>Ce que les gens veulent voir</h2>
@@ -145,7 +145,8 @@ function stats(c){
   const pct=g.views_prev_7d?Math.round((g.views_7d-g.views_prev_7d)/g.views_prev_7d*100):null;
   const dir=v=>v==null?null:v>0?'up':v<0?'down':'flat';
   cards=[[fr(g.followers),'Abonnés TikTok',`objectif ${fr(g.goal)}`,g.followers_note||'',dir(g.followers_trend??g.followers_delta)],
-   [fr(g.views_7d),'Vues sur 7 jours',pct==null?'':(pct>=0?'+':'')+pct+' %','vs 7 jours précédents',dir(pct)],
+   [fr(g.views_7d),'Vues TikTok sur 7 jours',pct==null?'':(pct>=0?'+':'')+pct+' %','vs 7 jours précédents',dir(pct)],
+   ...(g.yt_views_7d!=null?[(yp=>[fr(g.yt_views_7d),'Vues YouTube sur 7 jours',yp==null?'':(yp>=0?'+':'')+fr(yp)+' %',g.yt_note||'',dir(yp)])(g.yt_views_prev_7d?Math.round((g.yt_views_7d-g.yt_views_prev_7d)/g.yt_views_prev_7d*100):null)]:[]),
    [fr(g.avg_views),'Vues moyennes par vidéo',g.avg_watch?fr(g.avg_watch)+' s regardées':'',g.avg_note||'',dir(g.avg_trend)]];
  } else cards=[[fr(f.value),f.label||'Abonnés','objectif '+fr(f.goal),'',null]];
  const AR={up:'↗',down:'↘',flat:'→'};
