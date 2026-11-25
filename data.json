@@ -1,6 +1,6 @@
 {
- "updated": "2026-11-19T06:25:00+01:00",
- "date_label": "Jeudi 19 novembre",
+ "updated": "2026-11-25T06:15:00+01:00",
+ "date_label": "Mercredi 25 novembre",
  "alerts": [],
  "channels": {
   "piv": {
@@ -132,82 +132,100 @@
    "name": "Tamko",
    "headline": [
     "Tamko,",
-    "2 vidéos aujourd'hui."
+    "3 vidéos TikTok et 2 Shorts programmés aujourd'hui."
    ],
-   "summary": "Course de coureurs et dominos aujourd'hui sur TikTok et YouTube. Depuis le lancement : 5 483 vues TikTok et 3 428 vues YouTube.",
+   "summary": "Dominos à 08:00, balle qui grossit à 13:00 et météores à 20:00 sur TikTok ; Shorts YouTube dominos à 10:30 et météores à 22:45. Depuis le lancement : 13 389 vues TikTok (28 vidéos) et environ 11 567 vues YouTube ; les 3 derniers jours tournent à 540-700 vues par TikTok.",
    "kpis": [
     {
      "platform": "TikTok",
      "label": "Meilleure vidéo",
-     "detail": "Ball escape, publiée le 15/11",
-     "value": 932,
+     "detail": "Country battle, publiée le 16/11",
+     "value": 1084,
      "unit": "vues",
-     "bar": 0.85
+     "bar": 0.95
     },
     {
      "platform": "YouTube",
      "label": "Meilleur Short",
-     "detail": "Course de voitures, publié le 16/11",
-     "value": 1097,
+     "detail": "Territory, publié le 20/11",
+     "value": 1138,
      "unit": "vues",
      "bar": 1.0
     }
    ],
    "followers": {
     "label": "Abonnés TikTok",
-    "value": 1,
+    "value": 4,
     "goal": 1000
    },
    "today": [
     {
      "time": "08:00",
      "platform": "TikTok",
-     "title": "Survival (ancienne charte)",
-     "status": "publié"
+     "title": "Will they ALL fall? (dominos)",
+     "status": "programmé"
+    },
+    {
+     "time": "10:30",
+     "platform": "YouTube",
+     "title": "Can 500 dominoes make it? (dominos)",
+     "status": "programmé"
     },
     {
      "time": "13:00",
      "platform": "TikTok",
-     "title": "Pick your side (territoire)",
-     "status": "programmé"
-    },
-    {
-     "time": "17:00",
-     "platform": "YouTube",
-     "title": "Which side takes over? 🎨💀",
+     "title": "It grows every bounce (grow)",
      "status": "programmé"
     },
     {
      "time": "20:00",
      "platform": "TikTok",
-     "title": "TRAPPED or FREE? (labyrinthe)",
+     "title": "Dodge or die (météores)",
      "status": "programmé"
     },
     {
-     "time": "22:00",
+     "time": "22:45",
      "platform": "YouTube",
-     "title": "Wait for the timer 💀 Trapped or free?",
+     "title": "Only 1 survives the meteors (météores)",
      "status": "programmé"
     }
    ],
    "upcoming": [
     {
-     "day": "Vendredi 20",
-     "text": "Survival (TikTok 08:00, YouTube 17:00), nouveau créneau TikTok 13:00, course de canards (TikTok 20:00, YouTube 22:00)"
-    },
-    {
-     "day": "Samedi 21",
-     "text": "3 TikTok (08:00, 13:00, 20:00). YouTube : dominos 18:00 puis 22:00"
+     "day": "Jeudi 26",
+     "text": "3 TikTok (08:00, 13:00, 20:00) ; YouTube ~10:40 et ~22:55 selon la règle des 24 h glissantes"
     }
    ],
-   "trend": null,
+   "trend": {
+    "labels": [
+     "18/11",
+     "19/11",
+     "20/11",
+     "21/11",
+     "22/11",
+     "23/11",
+     "24/11"
+    ],
+    "series": {
+     "TikTok": [
+      490,
+      463,
+      646,
+      690,
+      1968,
+      1961,
+      1855
+     ]
+    }
+   },
    "engagement": {
-    "likes": null,
-    "comments": null,
-    "shares": null,
-    "followers_gain": null
+    "likes": 28,
+    "comments": 0,
+    "shares": 13,
+    "followers_gain": 3
    },
    "best_time": null,
+   "comment_replies": 0,
    "warmup": [
     {
      "label": "@bongballs — courses de balles virales",
@@ -260,9 +278,7 @@
      "comment": "Called it from the first second 😎"
     }
    ],
-   "alerts": [
-    "YouTube limite à 2 Shorts par 24 h glissantes : 2 Shorts par jour (10:00 et 22:00)"
-   ]
+   "alerts": []
   },
   "tellr": {
    "name": "TELLR",
