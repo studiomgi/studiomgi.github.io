@@ -18,9 +18,9 @@
 *{box-sizing:border-box}
 body{margin:0;font-family:Inter,system-ui,sans-serif;color:var(--ink);background:var(--bg);min-height:100vh;-webkit-font-smoothing:antialiased}
 .wrap{max-width:1120px;margin:0 auto;padding:20px 20px 60px;display:flex;flex-direction:column;gap:28px}
-nav{display:flex;justify-content:space-between;align-items:center;gap:12px;background:#fff;border-radius:12px;padding:10px 12px 10px 18px;flex-wrap:wrap}
+nav{display:flex;flex-direction:column;gap:10px;background:#fff;border-radius:12px;padding:12px}
 .word{font-size:18px;font-weight:700;letter-spacing:-.3px}
-.biz{display:flex;gap:6px;background:#fff;border-radius:12px;padding:6px;flex-wrap:wrap}.biz button{flex:1;min-height:52px;border:0;border-radius:8px;background:transparent;padding:0 16px;font:inherit;font-size:clamp(18px,3.4vw,24px);font-weight:700;letter-spacing:-.3px;color:var(--soft);cursor:pointer}.biz button[aria-selected=true]{background:var(--dark);color:#fff}
+.biz{display:flex;gap:6px;width:100%}.biz button{flex:1;min-height:52px;border:0;border-radius:8px;background:transparent;padding:0 16px;font:inherit;font-size:clamp(18px,3.4vw,24px);font-weight:700;letter-spacing:-.3px;color:var(--soft);cursor:pointer}.biz button[aria-selected=true]{background:var(--acc);color:var(--ink)}
 .logbar{display:flex;justify-content:space-between;align-items:center;gap:10px;background:#fff;border-radius:10px;padding:12px 16px;font-size:13px;font-weight:600;letter-spacing:.3px;cursor:pointer;border:0;font-family:inherit;color:var(--ink);width:100%;text-align:left}.logbar i{width:8px;height:8px;border-radius:4px;background:var(--acc);display:inline-block;margin-right:8px}.logbar.ok i{background:var(--ok)}.logbar span:last-child{color:var(--acc)}
 .tabs button{min-height:36px;padding:0 14px;border-radius:8px;border:0;background:transparent;color:var(--soft);font:inherit;font-size:13px;cursor:pointer}
 .tabs button[aria-selected=true]{background:var(--dark);color:#fff}
@@ -45,16 +45,18 @@ h2{font-weight:600;font-size:clamp(24px,3vw,32px);line-height:1.15;margin:0 0 16
 .lf b{font-family:var(--mono);font-weight:500;color:var(--acc2)}
 .grid{display:grid;gap:12px}.g3{grid-template-columns:repeat(3,minmax(0,1fr))}.g2{grid-template-columns:repeat(2,minmax(0,1fr))}
 .stat{background:var(--card);border-radius:12px;padding:18px;display:flex;flex-direction:column;justify-content:space-between;min-height:150px}
-.stat .n{font-size:44px;font-weight:300;line-height:1;letter-spacing:-1.5px}
+.stat .n{display:flex;align-items:center;font-size:44px;font-weight:300;line-height:1;letter-spacing:-1.5px}
 .stat .l{display:flex;justify-content:space-between;font-size:12px;color:var(--soft);margin-top:24px}.stat .l span:last-child{color:var(--acc)}
+.arr{font-size:22px;font-weight:600;margin-left:6px}.arr.up{color:#2F7D4F}.arr.down{color:#D93025}.arr.flat{color:var(--mute)}
 .stat .d{font-size:12px;color:var(--mute);margin-top:4px}
 .panel{background:var(--card);border-radius:12px;padding:20px}
 .ph{display:flex;justify-content:space-between;align-items:baseline;gap:10px;margin-bottom:14px}
 .ph b{font-weight:500;font-size:14px}.ph span{font-size:12px;color:var(--mute)}
 .br{display:grid;grid-template-columns:minmax(0,110px) 1fr 52px;gap:10px;align-items:center;font-size:13px;padding:6px 0}
 .br .bar{height:8px;border-radius:4px;background:var(--bg)}.br .bar i{display:block;height:100%;border-radius:4px;background:var(--dark)}
-.br.top .bar i{background:var(--acc)}.br .v{font-variant-numeric:tabular-nums;font-weight:500;font-size:12px;text-align:right}
+.br.top .bar i{background:var(--acc)}.br.low .bar i{background:#D93025}.br.low .v{color:#D93025}.br .v{font-variant-numeric:tabular-nums;font-weight:500;font-size:12px;text-align:right}
 .br small{display:block;font-size:11px;color:var(--mute)}
+.verdict{background:var(--acc);color:var(--ink);border-radius:16px;padding:20px 22px}.vk{margin:0 0 6px;font-size:12px;font-weight:700;letter-spacing:1px;text-transform:uppercase}.verdict .take p{border-top-color:rgba(36,36,36,.18);font-weight:500}.verdict .take p::before{color:var(--ink)}
 .take{display:flex;flex-direction:column;gap:0}
 .take p{margin:0;padding:12px 0;border-top:1px solid var(--line);font-size:14px;line-height:1.55}.take p:first-child{border-top:0}
 .take p::before{content:'// ';color:var(--acc);font-family:var(--mono);font-size:12px}
@@ -83,17 +85,17 @@ svg text{font-family:var(--mono)}
 <span id="gerr" style="font-size:12px;color:var(--warn)"></span>
 </form></div>
 <div class="wrap">
-<nav><span class="word">HUB MGI</span><span class="k" id="date" style="margin:0"></span></nav>
-<div class="biz" role="tablist" id="tabs"></div>
+<nav><div style="display:flex;justify-content:space-between;align-items:center;width:100%;padding:4px 4px 0"><span class="word">HUB MGI</span><span class="k" id="date" style="margin:0"></span></div><div class="biz" role="tablist" id="tabs"></div></nav>
 <div id="logline"></div>
+<section id="verdict" class="verdict"><p class="vk">Ligne directrice</p><div class="take" id="takeaways"></div></section>
 
 <section><p class="k">Aujourd'hui</p><div class="live" id="live"></div></section>
 
 <section id="draftsec"><p class="k">Brouillons TikTok à publier</p><div class="panel" id="drafts"></div></section>
 
-<section><p class="k">Évolution</p><h2 id="evo-title">La chaîne grandit-elle ?</h2>
+<section><h2 id="evo-title">Évolution</h2>
 <div class="grid g3" id="stats"></div>
-<div class="panel" style="margin-top:12px"><div class="ph"><b>Vues par jour</b><span>7 derniers jours · TikTok</span></div><div id="chart"></div></div>
+<div class="panel" style="margin-top:12px"><div class="ph"><b>Vues par jour</b><span>7 derniers jours · TikTok · <span style="color:var(--acc)">■</span> meilleur jour</span></div><div id="chart"></div></div>
 </section>
 
 <section id="insec"><p class="k">Ce qui marche</p><h2>Ce que les gens veulent voir</h2>
@@ -101,8 +103,7 @@ svg text{font-family:var(--mono)}
 <div class="panel"><div class="ph"><b>Par streamer</b><span>vues moyennes</span></div><div id="streamers"></div></div>
 <div class="panel"><div class="ph"><b>Par format et créneau</b><span>vues moyennes</span></div><div id="formats"></div></div>
 </div>
-<div class="grid g2" style="margin-top:12px">
-<div class="panel"><div class="ph"><b>À retenir</b><span>décisions</span></div><div class="take" id="takeaways"></div></div>
+<div class="grid" style="margin-top:12px">
 <div class="panel"><div class="ph"><b>Meilleures vidéos</b><span>depuis le lancement</span></div><div id="top"></div></div>
 </div>
 </section>
@@ -142,32 +143,34 @@ function stats(c){
  let cards=[];
  if(g){
   const pct=g.views_prev_7d?Math.round((g.views_7d-g.views_prev_7d)/g.views_prev_7d*100):null;
-  cards=[[fr(g.followers),'Abonnés TikTok',`objectif ${fr(g.goal)}`,g.followers_note||''],
-   [fr(g.views_7d),'Vues sur 7 jours',pct==null?'':(pct>=0?'+':'')+pct+' %','vs 7 jours précédents'],
-   [fr(g.avg_views),'Vues moyennes par vidéo',g.avg_watch?fr(g.avg_watch)+' s regardées':'',g.avg_note||'']];
- } else cards=[[fr(f.value),f.label||'Abonnés','objectif '+fr(f.goal),'']];
- document.getElementById('stats').innerHTML=cards.map(([n,l,r,d])=>`<div class="stat"><div class="n">${n}</div><div><div class="l"><span>${esc(l)}</span><span>${esc(r)}</span></div><div class="d">${esc(d)}</div></div></div>`).join('');
+  const dir=v=>v==null?null:v>0?'up':v<0?'down':'flat';
+  cards=[[fr(g.followers),'Abonnés TikTok',`objectif ${fr(g.goal)}`,g.followers_note||'',dir(g.followers_trend??g.followers_delta)],
+   [fr(g.views_7d),'Vues sur 7 jours',pct==null?'':(pct>=0?'+':'')+pct+' %','vs 7 jours précédents',dir(pct)],
+   [fr(g.avg_views),'Vues moyennes par vidéo',g.avg_watch?fr(g.avg_watch)+' s regardées':'',g.avg_note||'',dir(g.avg_trend)]];
+ } else cards=[[fr(f.value),f.label||'Abonnés','objectif '+fr(f.goal),'',null]];
+ const AR={up:'↗',down:'↘',flat:'→'};
+ document.getElementById('stats').innerHTML=cards.map(([n,l,r,d,a])=>`<div class="stat"><div class="n">${n}${a?`<span class="arr ${a}">${AR[a]}</span>`:''}</div><div><div class="l"><span>${esc(l)}</span><span>${esc(r)}</span></div><div class="d">${esc(d)}</div></div></div>`).join('');
 }
 function chart(c){
  const t=c.trend,el=document.getElementById('chart');
  const s=t&&t.series&&(t.series.TikTok||Object.values(t.series)[0]);
  if(!s||!s.some(v=>v!=null)){el.innerHTML='<p style="font-size:13px;color:var(--soft);margin:12px 0">La courbe s\'affichera dès les premières statistiques.</p>';return}
- const W=700,H=190,P=26,n=s.length,max=Math.max(1,...s.filter(v=>v!=null)),bw=(W-2*P)/n*.56;
- let g='';s.forEach((v,i)=>{const x=P+(W-2*P)*(i+.5)/n,h=v==null?0:(H-2*P)*(v/max),last=i===n-1;
+ const W=700,H=190,P=26,n=s.length,max=Math.max(1,...s.filter(v=>v!=null)),best=s.indexOf(max),bw=(W-2*P)/n*.56;
+ let g='';s.forEach((v,i)=>{const x=P+(W-2*P)*(i+.5)/n,h=v==null?0:(H-2*P)*(v/max),last=i===best;
   g+=`<rect x="${x-bw/2}" y="${H-P-h}" width="${bw}" height="${h}" rx="4" fill="${last?'#FF5608':'#242424'}"/>`+(v!=null?`<text x="${x}" y="${H-P-h-7}" font-size="11" fill="#5E5A54" text-anchor="middle">${fr(v)}</text>`:'')+`<text x="${x}" y="${H-6}" font-size="11" fill="#8A857D" text-anchor="middle">${esc(t.labels[i])}</text>`});
  el.innerHTML=`<svg viewBox="0 0 ${W} ${H}" width="100%" role="img" aria-label="Vues TikTok par jour sur 7 jours">${g}</svg>`;
 }
 function bars(list){
  if(!list||!list.length)return '<p style="font-size:13px;color:var(--soft);margin:0">Pas encore assez de données.</p>';
  const max=Math.max(...list.map(x=>x.value));
- return list.map((x,i)=>`<div class="br ${i===0&&!x.group?'top':''}"><span>${esc(x.label)}${x.detail?`<small>${esc(x.detail)}</small>`:''}</span><span class="bar"><i style="width:${Math.round(x.value/max*100)}%"></i></span><span class="v">${fr(x.value)}</span></div>`).join('');
+ const nLow=list.length>=5?2:1;return list.map((x,i)=>`<div class="br ${i===0&&!x.group?'top':''} ${list.length>1&&i>=list.length-nLow?'low':''}"><span>${esc(x.label)}${x.detail?`<small>${esc(x.detail)}</small>`:''}</span><span class="bar"><i style="width:${Math.round(x.value/max*100)}%"></i></span><span class="v">${fr(x.value)}</span></div>`).join('');
 }
 function insights(c){
  const s=c.insights,sec=document.getElementById('insec');
- if(!s){sec.style.display='none';return} sec.style.display='block';
+ if(!s){sec.style.display='none';document.getElementById('verdict').style.display='none';return} sec.style.display='block';
  document.getElementById('streamers').innerHTML=bars(s.streamers);
  document.getElementById('formats').innerHTML=bars(s.formats)+'<div style="height:12px"></div>'+bars(s.slots);
- document.getElementById('takeaways').innerHTML=(s.takeaways||[]).map(t=>`<p>${esc(t)}</p>`).join('');
+ const tk=s.takeaways||[];document.getElementById('verdict').style.display=tk.length?'block':'none';document.getElementById('takeaways').innerHTML=tk.map(t=>`<p>${esc(t)}</p>`).join('');
  document.getElementById('top').innerHTML=(s.top||[]).map((v,i)=>`<div class="vid"><span class="r">${i+1}</span><span>${esc(v.title)}<small>${esc(v.detail)}</small></span><span class="v">${fr(v.views)}</span></div>`).join('');
 }
 function warm(c){
