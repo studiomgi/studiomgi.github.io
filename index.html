@@ -4,29 +4,30 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, nofollow">
-<title>HUB · Studio MGI</title>
+<title>HUB MGI</title>
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <link rel="icon" href="icon-192.png">
 <link rel="manifest" href="manifest.json">
 <meta name="apple-mobile-web-app-title" content="HUB MGI">
 <meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="theme-color" content="#F0ECE4">
+<meta name="theme-color" content="#FF5608">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Halant:wght@400;500&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap">
 <style>
-:root{--bg:#F0ECE4;--bg2:#E6E0D5;--card:#FFFFFF;--ink:#242424;--soft:#5E5A54;--mute:#8A857D;--line:#E4DED3;--dark:#242424;--dark2:#2F2F2F;--dline:#3C3C3C;--dmute:#A8A39B;--acc:#E52E9E;--acc2:#FF3DA8;--vio:#7B3FE4;--ok:#2F7D4F;--warn:#B4530C;--serif:Halant,Georgia,serif;--mono:'JetBrains Mono',ui-monospace,monospace}
+:root{--bg:#F0ECE4;--bg2:#E6E0D5;--card:#FFFFFF;--ink:#242424;--soft:#5E5A54;--mute:#8A857D;--line:#E4DED3;--dark:#242424;--dark2:#2F2F2F;--dline:#3C3C3C;--dmute:#A8A39B;--acc:#FF5608;--acc2:#FF5608;--vio:#7B3FE4;--ok:#2F7D4F;--warn:#B4530C;--serif:Inter,system-ui,sans-serif;--mono:Inter,system-ui,sans-serif}
 *{box-sizing:border-box}
 body{margin:0;font-family:Inter,system-ui,sans-serif;color:var(--ink);background:var(--bg);min-height:100vh;-webkit-font-smoothing:antialiased}
 .wrap{max-width:1120px;margin:0 auto;padding:20px 20px 60px;display:flex;flex-direction:column;gap:28px}
 nav{display:flex;justify-content:space-between;align-items:center;gap:12px;background:#fff;border-radius:12px;padding:10px 12px 10px 18px;flex-wrap:wrap}
-.word{font-family:var(--serif);font-size:20px;letter-spacing:-.2px}
-.tabs{display:flex;gap:4px}
+.word{font-size:18px;font-weight:700;letter-spacing:-.3px}
+.biz{display:flex;gap:22px;flex-wrap:wrap}.biz button{border:0;background:none;padding:0;font:inherit;font-size:clamp(30px,6vw,52px);font-weight:700;letter-spacing:-1px;color:#C9C2B6;cursor:pointer;line-height:1}.biz button[aria-selected=true]{color:var(--ink)}.biz button[aria-selected=true]::after{content:'.';color:var(--acc)}
+.logbar{display:flex;justify-content:space-between;align-items:center;gap:10px;background:#fff;border-radius:10px;padding:12px 16px;font-size:13px;font-weight:600;letter-spacing:.3px;cursor:pointer;border:0;font-family:inherit;color:var(--ink);width:100%;text-align:left}.logbar i{width:8px;height:8px;border-radius:4px;background:var(--acc);display:inline-block;margin-right:8px}.logbar.ok i{background:var(--ok)}.logbar span:last-child{color:var(--acc)}
 .tabs button{min-height:36px;padding:0 14px;border-radius:8px;border:0;background:transparent;color:var(--soft);font:inherit;font-size:13px;cursor:pointer}
 .tabs button[aria-selected=true]{background:var(--dark);color:#fff}
 .k{font-size:12px;color:var(--soft);margin:0 0 8px}.k::before{content:'// ';color:var(--acc)}
 h1{font-family:var(--serif);font-weight:400;font-size:clamp(30px,4.6vw,50px);line-height:1.08;margin:0;letter-spacing:-.5px}
 h1 em{font-style:normal;color:var(--acc)}
-h2{font-family:var(--serif);font-weight:400;font-size:clamp(24px,3vw,32px);line-height:1.15;margin:0 0 16px;letter-spacing:-.3px}
+h2{font-weight:600;font-size:clamp(24px,3vw,32px);line-height:1.15;margin:0 0 16px;letter-spacing:-.3px}
 .lead{font-size:14px;line-height:1.65;color:var(--soft);max-width:520px;margin:14px 0 0}
 .alert{display:flex;gap:10px;align-items:flex-start;padding:12px 16px;border-radius:10px;font-size:14px;line-height:1.5;background:#fff}
 .alert i{flex:none;width:8px;height:8px;border-radius:4px;margin-top:7px;background:var(--warn)}.alert.ok i{background:var(--ok)}
@@ -34,7 +35,7 @@ h2{font-family:var(--serif);font-weight:400;font-size:clamp(24px,3vw,32px);line-
 .lh{display:flex;justify-content:space-between;align-items:center;padding:12px 20px;border-bottom:1px solid var(--dline);font-size:14px;font-weight:500}
 .lh span:last-child,.mono{font-family:var(--mono);font-size:12px;color:var(--dmute);font-weight:400}
 .lr{display:grid;grid-template-columns:18px 52px 1fr auto;gap:10px;align-items:center;padding:11px 20px;font-size:14px}
-.lr .t{font-family:var(--mono);font-size:12px;color:var(--dmute)}
+.lr .t{font-variant-numeric:tabular-nums;font-size:12px;font-weight:500;color:var(--dmute)}
 .lr .p{font-size:11px;color:var(--dmute)}
 .dot{width:14px;height:14px;border-radius:7px;border:1.5px solid var(--dmute)}
 .dot.done{border-color:var(--acc2);background:radial-gradient(circle,var(--acc2) 0 3px,transparent 3.5px)}
@@ -44,7 +45,7 @@ h2{font-family:var(--serif);font-weight:400;font-size:clamp(24px,3vw,32px);line-
 .lf b{font-family:var(--mono);font-weight:500;color:var(--acc2)}
 .grid{display:grid;gap:12px}.g3{grid-template-columns:repeat(3,minmax(0,1fr))}.g2{grid-template-columns:repeat(2,minmax(0,1fr))}
 .stat{background:var(--card);border-radius:12px;padding:18px;display:flex;flex-direction:column;justify-content:space-between;min-height:150px}
-.stat .n{font-family:var(--serif);font-size:44px;line-height:1;letter-spacing:-1px}
+.stat .n{font-size:44px;font-weight:300;line-height:1;letter-spacing:-1.5px}
 .stat .l{display:flex;justify-content:space-between;font-size:12px;color:var(--soft);margin-top:24px}.stat .l span:last-child{color:var(--acc)}
 .stat .d{font-size:12px;color:var(--mute);margin-top:4px}
 .panel{background:var(--card);border-radius:12px;padding:20px}
@@ -52,14 +53,14 @@ h2{font-family:var(--serif);font-weight:400;font-size:clamp(24px,3vw,32px);line-
 .ph b{font-weight:500;font-size:14px}.ph span{font-size:12px;color:var(--mute)}
 .br{display:grid;grid-template-columns:minmax(0,110px) 1fr 52px;gap:10px;align-items:center;font-size:13px;padding:6px 0}
 .br .bar{height:8px;border-radius:4px;background:var(--bg)}.br .bar i{display:block;height:100%;border-radius:4px;background:var(--dark)}
-.br.top .bar i{background:var(--acc)}.br .v{font-family:var(--mono);font-size:12px;text-align:right}
+.br.top .bar i{background:var(--acc)}.br .v{font-variant-numeric:tabular-nums;font-weight:500;font-size:12px;text-align:right}
 .br small{display:block;font-size:11px;color:var(--mute)}
 .take{display:flex;flex-direction:column;gap:0}
 .take p{margin:0;padding:12px 0;border-top:1px solid var(--line);font-size:14px;line-height:1.55}.take p:first-child{border-top:0}
 .take p::before{content:'// ';color:var(--acc);font-family:var(--mono);font-size:12px}
 .vid{display:grid;grid-template-columns:28px 1fr auto;gap:12px;align-items:center;padding:12px 0;border-top:1px solid var(--line);font-size:14px}.vid:first-child{border-top:0}
-.vid .r{font-family:var(--serif);font-size:22px;color:var(--mute)}.vid small{display:block;font-size:12px;color:var(--mute);margin-top:2px}
-.vid .v{font-family:var(--mono);font-size:13px}
+.vid .r{font-size:20px;font-weight:300;color:var(--mute)}.vid small{display:block;font-size:12px;color:var(--mute);margin-top:2px}
+.vid .v{font-variant-numeric:tabular-nums;font-weight:500;font-size:13px}
 .btn{min-height:36px;padding:0 14px;border-radius:8px;border:0;background:var(--dark);color:#fff;font:inherit;font-size:12px;cursor:pointer;white-space:nowrap}
 .btn.ghost{background:transparent;border:1px solid var(--line);color:var(--ink)}
 .draft{padding:14px 0;border-top:1px solid var(--line)}.draft:first-of-type{border-top:0}
@@ -75,17 +76,16 @@ svg text{font-family:var(--mono)}
 <body>
 <div id="gate" style="display:none;position:fixed;inset:0;background:var(--bg);z-index:9;align-items:center;justify-content:center">
 <form id="gf" style="background:#fff;border-radius:16px;padding:28px;display:flex;flex-direction:column;gap:12px;width:300px">
-<span class="word">Studio MGI</span>
+<span class="word">HUB MGI</span>
 <label for="pw" style="font-size:13px;color:var(--soft)">Mot de passe</label>
 <input id="pw" type="password" autocomplete="current-password" style="min-height:44px;border-radius:8px;border:1px solid var(--line);padding:0 12px;font:inherit">
 <button class="btn" style="min-height:44px">Entrer</button>
 <span id="gerr" style="font-size:12px;color:var(--warn)"></span>
 </form></div>
 <div class="wrap">
-<nav><span class="word">Studio MGI</span><div class="tabs" role="tablist" id="tabs"></div></nav>
-
-<section><p class="k" id="date"></p><h1 id="title"></h1><p class="lead" id="summary"></p></section>
-<div id="alerts" style="display:flex;flex-direction:column;gap:8px"></div>
+<nav><span class="word">HUB MGI</span><span class="k" id="date" style="margin:0"></span></nav>
+<div class="biz" role="tablist" id="tabs"></div>
+<div id="logline"></div>
 
 <section><p class="k">Aujourd'hui</p><div class="live" id="live"></div></section>
 
@@ -109,6 +109,7 @@ svg text{font-family:var(--mono)}
 
 <details id="upsec"><summary>À venir</summary><div id="upcoming" style="margin-top:12px"></div></details>
 <details id="warmsec"><summary>Chauffe TikTok · 10 min</summary><p style="font-size:13px;color:var(--soft);margin:12px 0 4px">Regarde jusqu'au bout, like, enregistre, puis colle ton commentaire en l'adaptant.</p><div id="warm"></div></details>
+<details id="logsec"><summary>Log</summary><div id="alerts" style="display:flex;flex-direction:column;gap:8px;margin-top:12px"></div><p class="lead" id="summary" style="max-width:none"></p></details>
 <footer id="updated"></footer>
 </div>
 <script>
@@ -153,7 +154,7 @@ function chart(c){
  if(!s||!s.some(v=>v!=null)){el.innerHTML='<p style="font-size:13px;color:var(--soft);margin:12px 0">La courbe s\'affichera dès les premières statistiques.</p>';return}
  const W=700,H=190,P=26,n=s.length,max=Math.max(1,...s.filter(v=>v!=null)),bw=(W-2*P)/n*.56;
  let g='';s.forEach((v,i)=>{const x=P+(W-2*P)*(i+.5)/n,h=v==null?0:(H-2*P)*(v/max),last=i===n-1;
-  g+=`<rect x="${x-bw/2}" y="${H-P-h}" width="${bw}" height="${h}" rx="4" fill="${last?'#E52E9E':'#242424'}"/>`+(v!=null?`<text x="${x}" y="${H-P-h-7}" font-size="11" fill="#5E5A54" text-anchor="middle">${fr(v)}</text>`:'')+`<text x="${x}" y="${H-6}" font-size="11" fill="#8A857D" text-anchor="middle">${esc(t.labels[i])}</text>`});
+  g+=`<rect x="${x-bw/2}" y="${H-P-h}" width="${bw}" height="${h}" rx="4" fill="${last?'#FF5608':'#242424'}"/>`+(v!=null?`<text x="${x}" y="${H-P-h-7}" font-size="11" fill="#5E5A54" text-anchor="middle">${fr(v)}</text>`:'')+`<text x="${x}" y="${H-6}" font-size="11" fill="#8A857D" text-anchor="middle">${esc(t.labels[i])}</text>`});
  el.innerHTML=`<svg viewBox="0 0 ${W} ${H}" width="100%" role="img" aria-label="Vues TikTok par jour sur 7 jours">${g}</svg>`;
 }
 function bars(list){
@@ -177,12 +178,13 @@ function warm(c){
 }
 function render(){
  const c=data.channels[cur];
- document.getElementById('tabs').innerHTML=Object.entries(data.channels).map(([k,v])=>`<button role="tab" aria-selected="${k===cur}" data-k="${k}">${esc(v.name)}</button>`).join('');
+ const LBL={piv:'PIV',tamko:'TAMKO',tellr:'TELLR'};
+ document.getElementById('tabs').innerHTML=Object.entries(data.channels).map(([k,v])=>`<button role="tab" aria-selected="${k===cur}" data-k="${k}">${esc(LBL[k]||v.name.toUpperCase())}</button>`).join('');
  document.querySelectorAll('#tabs button').forEach(b=>b.onclick=()=>{cur=b.dataset.k;render()});
  document.getElementById('date').textContent=data.date_label;
- const h=c.headline||['',''];document.getElementById('title').innerHTML=esc(h[0])+' <em>'+esc(h[1])+'</em>';
  document.getElementById('summary').textContent=c.summary||'';
  const al=(data.alerts||[]).filter(a=>a.startsWith(c.name)||!Object.values(data.channels).some(x=>a.startsWith(x.name)));
+ document.getElementById('logline').innerHTML=al.length?`<button class="logbar" onclick="const d=document.getElementById('logsec');d.open=true;d.scrollIntoView({behavior:'smooth'})"><span><i></i>PROBLÈME · ${al.length} point${al.length>1?'s':''} à vérifier</span><span>Voir le log →</span></button>`:'<div class="logbar ok"><span><i></i>TOUT EST OK</span></div>';
  document.getElementById('alerts').innerHTML=al.length?al.map(a=>`<div class="alert"><i></i><span>${esc(a)}</span></div>`).join(''):'<div class="alert ok"><i></i><span>Aucune action requise aujourd\'hui</span></div>';
  live(c);drafts(c);stats(c);chart(c);insights(c);warm(c);
  document.getElementById('upcoming').innerHTML=(c.upcoming||[]).map(u=>`<div class="up"><b>${esc(u.day)}</b><span>${esc(u.text)}</span></div>`).join('');
