@@ -4,6 +4,7 @@ Le site est https://studiomgi.github.io. La page `index.html` affiche `data.json
 - Partners in Vice : `hub/piv.json` dans shinkoco/piv-videos
 - Tamko : `hub/tamko.json` dans shinkoco/tamko-videos
 - TELLR : `hub/tellr.json` dans shinkoco/tellr-videos
+- Kess Quiz : `hub/kess.json` dans shinkoco/kessquiz-videos (onglet KESS)
 Format : {"updated": ISO+01:00, "date_label": "Jeudi 19 novembre", "alerts": ["<Nom de la chaîne> : …"], "channel": {objet de la chaîne, format ci-dessous}}. La page lit ces fichiers en direct. `data.json` ne garde que les listes `keywords` (à la main) et des valeurs de secours.
 
 Chaque matin, après avoir programmé ses publications, chaque tâche :

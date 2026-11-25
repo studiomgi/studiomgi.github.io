@@ -305,6 +305,47 @@
    "today": [],
    "upcoming": [],
    "drafts": []
+  },
+  "kess": {
+   "name": "Kess Quiz",
+   "headline": [
+    "Kess Quiz,",
+    "lancement demain : 2 quiz programmés."
+   ],
+   "summary": "Compte créé et connecté à Zernio. Premières vidéos jeudi : drapeaux à 12:30 et spécial capitales à 17:00. Ensuite 2 vidéos par jour en automatique.",
+   "kpis": [
+    {
+     "platform": "TikTok",
+     "label": "Meilleure vidéo",
+     "detail": "Aucune vidéo publiée",
+     "value": null,
+     "unit": "vues",
+     "bar": 0
+    }
+   ],
+   "followers": {
+    "label": "Abonnés TikTok",
+    "value": 36,
+    "goal": 1000
+   },
+   "today": [],
+   "upcoming": [
+    {
+     "day": "Jeudi 26",
+     "text": "12:30 Défi 8 drapeaux · 17:00 Spécial capitales"
+    },
+    {
+     "day": "Vendredi 27",
+     "text": "Production auto : 2 quiz (12:30, 17:00)"
+    }
+   ],
+   "engagement": {
+    "likes": null,
+    "comments": null,
+    "shares": null,
+    "followers_gain": null
+   },
+   "best_time": null
   }
  },
  "keywords": {
