@@ -20,7 +20,7 @@ body{margin:0;font-family:Inter,system-ui,sans-serif;color:var(--ink);background
 .wrap{max-width:1120px;margin:0 auto;padding:20px 20px 60px;display:flex;flex-direction:column;gap:28px}
 nav{display:flex;flex-direction:column;gap:10px;background:#fff;border-radius:12px;padding:12px}
 .word{font-size:18px;font-weight:700;letter-spacing:-.3px}
-.biz{display:flex;gap:6px;width:100%}.biz button{flex:1;min-height:52px;border:0;border-radius:8px;background:transparent;padding:0 16px;font:inherit;font-size:clamp(18px,3.4vw,24px);font-weight:700;letter-spacing:-.3px;color:var(--soft);cursor:pointer}.biz button[aria-selected=true]{background:var(--dark);color:#fff}
+.biz{display:flex;gap:6px;width:100%}.biz button{flex:1;min-height:52px;border:0;border-radius:8px;background:transparent;padding:0 8px;font:inherit;font-size:clamp(14px,3.2vw,24px);font-weight:700;letter-spacing:-.3px;color:var(--soft);cursor:pointer}.biz button[aria-selected=true]{background:var(--dark);color:#fff}
 .logbar{display:flex;justify-content:space-between;align-items:center;gap:10px;background:#fff;border-radius:10px;padding:12px 16px;font-size:13px;font-weight:600;letter-spacing:.3px;cursor:pointer;border:0;font-family:inherit;color:var(--ink);width:100%;text-align:left}.logbar i{width:8px;height:8px;border-radius:4px;background:var(--acc);display:inline-block;margin-right:8px}.logbar.ok i{background:var(--ok)}.logbar span:last-child{color:var(--acc)}
 .tabs button{min-height:36px;padding:0 14px;border-radius:8px;border:0;background:transparent;color:var(--soft);font:inherit;font-size:13px;cursor:pointer}
 .tabs button[aria-selected=true]{background:var(--dark);color:#fff}
@@ -71,6 +71,13 @@ details{background:var(--card);border-radius:12px;padding:16px 20px}
 summary{cursor:pointer;font-size:14px;font-weight:500;list-style:none;display:flex;justify-content:space-between}summary::after{content:'+';color:var(--acc)}details[open] summary::after{content:'–'}
 .up{display:flex;gap:14px;padding:10px 0;border-top:1px solid var(--line);font-size:14px}.up:first-child{border-top:0}.up b{font-weight:500;min-width:96px}
 footer{font-size:12px;color:var(--mute);text-align:center}
+.chips{display:flex;gap:6px;flex-wrap:wrap}.chips button{min-height:36px;padding:0 14px;border-radius:8px;border:1px solid var(--line);background:#fff;font:inherit;font-size:13px;font-weight:500;color:var(--soft);cursor:pointer}.chips button.on{background:var(--dark);border-color:var(--dark);color:#fff}
+.filt{display:flex;flex-direction:column;gap:8px;background:#fff;border-radius:12px;padding:14px}.filt .fl{font-size:11px;font-weight:600;letter-spacing:.6px;text-transform:uppercase;color:var(--mute)}
+.kpis{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}.kpi{background:#fff;border-radius:12px;padding:16px}.kpi .n{font-size:30px;font-weight:300;letter-spacing:-1px}.kpi .l{font-size:12px;color:var(--soft);margin-top:10px}
+.hm{display:grid;grid-template-columns:34px repeat(24,minmax(0,1fr));gap:2px;font-size:10px;color:var(--mute)}.hm i{display:block;aspect-ratio:1;border-radius:2px;background:var(--bg)}
+.tbl{width:100%;border-collapse:collapse;font-size:13px}.tbl th{font-size:11px;font-weight:600;color:var(--mute);text-align:right;padding:8px 6px;border-bottom:1px solid var(--line);cursor:pointer;white-space:nowrap;user-select:none}.tbl th:first-child,.tbl td:first-child,.tbl th.tl,.tbl td.tl{text-align:left}.tbl td{padding:9px 6px;border-bottom:1px solid var(--line);text-align:right;font-variant-numeric:tabular-nums}.tbl th.s{color:var(--acc)}
+.tw{overflow-x:auto;-webkit-overflow-scrolling:touch}
+@media (max-width:760px){.kpis{grid-template-columns:repeat(2,minmax(0,1fr))}}
 svg text{font-family:var(--mono)}
 @media (max-width:760px){.g3,.g2{grid-template-columns:1fr}.lr{grid-template-columns:18px 46px 1fr}.lr .p{grid-column:3}.stat{min-height:120px}}
 </style>
@@ -86,6 +93,7 @@ svg text{font-family:var(--mono)}
 </form></div>
 <div class="wrap">
 <nav><div style="display:flex;justify-content:space-between;align-items:center;width:100%;padding:4px 4px 0"><span class="word">HUB MGI</span><span class="k" id="date" style="margin:0"></span></div><div class="biz" role="tablist" id="tabs"></div></nav>
+<div id="chview">
 <div id="logline"></div>
 <section id="verdict" class="verdict"><p class="vk">Ligne directrice</p><div class="take" id="takeaways"></div></section>
 
@@ -111,6 +119,16 @@ svg text{font-family:var(--mono)}
 <details id="upsec"><summary>À venir</summary><div id="upcoming" style="margin-top:12px"></div></details>
 <details id="warmsec"><summary>Chauffe TikTok · 10 min</summary><p style="font-size:13px;color:var(--soft);margin:12px 0 4px">Regarde jusqu'au bout, like, enregistre, puis colle ton commentaire en l'adaptant.</p><div id="warm"></div></details>
 <details id="logsec"><summary>Log</summary><div id="alerts" style="display:flex;flex-direction:column;gap:8px;margin-top:12px"></div><p class="lead" id="summary" style="max-width:none"></p></details>
+</div>
+<div id="anview" style="display:none;flex-direction:column;gap:20px">
+<div class="filt"><span class="fl">Chaîne</span><div class="chips" id="fch"></div><span class="fl">Plateforme</span><div class="chips" id="fpl"></div><span class="fl">Période</span><div class="chips" id="fpe"></div></div>
+<div class="kpis" id="akpi"></div>
+<div class="grid g2"><div class="panel"><div class="ph"><b>Vues par semaine</b><span id="vwsub"></span></div><div id="avw"></div></div><div class="panel"><div class="ph"><b>Publications par semaine</b><span></span></div><div id="apw"></div></div></div>
+<div class="panel"><div class="ph"><b>Abonnés</b><span>par compte</span></div><div id="afol"></div></div>
+<div class="panel"><div class="ph"><b>Meilleurs horaires</b><span>vues moyennes · heure de Paris</span></div><div id="ahm"></div><p id="ahmt" style="font-size:12px;color:var(--soft);margin:10px 0 0"></p></div>
+<div class="grid g2"><div class="panel"><div class="ph"><b>Formats</b><span>vues moyennes</span></div><div id="afmt"></div></div><div class="panel"><div class="ph"><b>Comptes</b><span>sur la période</span></div><div class="tw" id="acc"></div></div></div>
+<div class="panel"><div class="ph"><b>Toutes les vidéos</b><span>clique sur une colonne pour trier</span></div><div class="tw" id="atbl"></div><button class="btn ghost" id="amore" style="margin-top:12px">Voir tout</button></div>
+</div>
 <footer id="updated"></footer>
 </div>
 <script>
@@ -180,12 +198,64 @@ function warm(c){
  el.innerHTML=w.map((x,i)=>`<div class="draft"><div style="display:flex;justify-content:space-between;align-items:center;gap:10px"><a href="${esc(x.url)}" target="_blank" rel="noopener" style="color:var(--ink);font-size:14px">${esc(x.label)} ↗</a><button class="btn ghost" data-wc="wc${i}">Copier</button></div><p class="cap" id="wc${i}">${esc(x.comment)}</p></div>`).join('');
  copyBtns(el,'data-wc');
 }
+
+const AN={ch:'all',pl:'all',pe:30,sort:'views',dir:-1,all:false};
+const NM={piv:'PIV',tamko:'TAMKO',tellr:'TELLR',kess:'KESS'};
+function allVids(){const r=[];Object.entries(data.channels).forEach(([k,c])=>(c.videos||[]).forEach(v=>r.push({...v,ch:k})));return r}
+function chipRow(id,opts,key){document.getElementById(id).innerHTML=opts.map(([v,l])=>`<button class="${AN[key]==v?'on':''}" data-v="${v}">${l}</button>`).join('');document.querySelectorAll('#'+id+' button').forEach(b=>b.onclick=()=>{AN[key]=isNaN(+b.dataset.v)?b.dataset.v:+b.dataset.v;renderAn()})}
+function wk(d){const x=new Date(d);const day=(x.getDay()+6)%7;x.setHours(0,0,0,0);x.setDate(x.getDate()-day);return x}
+function barSvg(labels,vals,lbl){const W=700,H=180,P=24,n=vals.length,max=Math.max(1,...vals),bw=(W-2*P)/Math.max(n,1)*.55;let g='';vals.forEach((v,i)=>{const x=P+(W-2*P)*(i+.5)/n,h=(H-2*P)*(v/max);g+=`<rect x="${x-bw/2}" y="${H-P-h}" width="${bw}" height="${h}" rx="4" fill="${v===max?'#FF5608':'#242424'}"/><text x="${x}" y="${H-P-h-6}" font-size="11" fill="#5E5A54" text-anchor="middle">${fr(v)}</text><text x="${x}" y="${H-6}" font-size="11" fill="#8A857D" text-anchor="middle">${labels[i]}</text>`});return n?`<svg viewBox="0 0 ${W} ${H}" width="100%" role="img" aria-label="${lbl}">${g}</svg>`:'<p style="font-size:13px;color:var(--soft)">Pas de données.</p>'}
+function renderAn(){
+ const chs=Object.keys(data.channels);
+ chipRow('fch',[['all','Toutes'],...chs.map(k=>[k,NM[k]||k])],'ch');
+ chipRow('fpl',[['all','Toutes'],['TikTok','TikTok'],['YouTube','YouTube']],'pl');
+ chipRow('fpe',[[7,'7 jours'],[30,'30 jours'],[0,'Tout']],'pe');
+ const lim=AN.pe?Date.now()-AN.pe*864e5:0;
+ const V=allVids().filter(v=>(AN.ch==='all'||v.ch===AN.ch)&&(AN.pl==='all'||v.platform===AN.pl)&&new Date(v.date)>=lim);
+ const sum=k=>V.reduce((a,v)=>a+(v[k]||0),0),views=sum('views'),eng=sum('likes')+sum('comments')+sum('shares')+sum('saves');
+ document.getElementById('akpi').innerHTML=[[V.length,'Publications'],[fr(views),'Vues'],[fr(sum('likes')),'Likes'],[fr(sum('shares')),'Partages'],[fr(sum('saves')),'Enregistrements'],[views?fr(Math.round(eng/views*1000)/10)+' %':'—','Engagement']].map(([n,l])=>`<div class="kpi"><div class="n">${n}</div><div class="l">${l}</div></div>`).join('');
+ const W={};V.forEach(v=>{const k=wk(v.date).getTime();(W[k]=W[k]||{v:0,p:0});W[k].v+=v.views||0;W[k].p++});
+ const ks=Object.keys(W).sort(),lb=ks.map(k=>new Date(+k).toLocaleDateString('fr-FR',{day:'2-digit',month:'2-digit'}));
+ document.getElementById('avw').innerHTML=barSvg(lb,ks.map(k=>W[k].v),'Vues par semaine');
+ document.getElementById('apw').innerHTML=barSvg(lb,ks.map(k=>W[k].p),'Publications par semaine');
+ document.getElementById('vwsub').textContent='semaine du lundi';
+ const days=['Lun','Mar','Mer','Jeu','Ven','Sam','Dim'],H={};
+ V.forEach(v=>{const d=new Date(v.date),k=((d.getDay()+6)%7)+'-'+d.getHours();(H[k]=H[k]||[]).push(v.views||0)});
+ const avg=a=>a.reduce((x,y)=>x+y,0)/a.length,cells=Object.entries(H).map(([k,a])=>[k,avg(a),a.length]),mx=Math.max(1,...cells.map(c=>c[1]));
+ let hm='<span></span>'+Array.from({length:24},(_,h)=>`<span style="text-align:center">${h%3?'':h}</span>`).join('');
+ days.forEach((d,di)=>{hm+=`<span>${d}</span>`;for(let h=0;h<24;h++){const a=H[di+'-'+h];hm+=a?`<i title="${d} ${h}h · ${Math.round(avg(a))} vues · ${a.length} vidéo(s)" style="background:rgba(255,86,8,${(.15+.85*avg(a)/mx).toFixed(2)})"></i>`:'<i></i>'}});
+ document.getElementById('ahm').innerHTML=`<div class="hm">${hm}</div>`;
+ const top=cells.filter(c=>c[2]>=2).sort((a,b)=>b[1]-a[1]).slice(0,3);
+ document.getElementById('ahmt').textContent=top.length?'Meilleurs créneaux (au moins 2 vidéos) : '+top.map(([k,a,n])=>{const[d,h]=k.split('-');return `${days[d]} ${h}h · ${fr(Math.round(a))} vues`}).join(' · '):'Pas encore assez de vidéos par créneau pour conclure.';
+ const grp=(f)=>{const G={};V.forEach(v=>{const k=f(v);if(!k)return;(G[k]=G[k]||[]).push(v)});return Object.entries(G).map(([k,a])=>({label:k,value:Math.round(avg(a.map(x=>x.views||0))),detail:a.length+' vidéo'+(a.length>1?'s':'')})).sort((a,b)=>b.value-a.value)};
+ document.getElementById('afmt').innerHTML=bars(grp(v=>v.duration==null?null:v.duration<30?'Court < 30 s':v.duration<=60?'Moyen 30-60 s':'Long > 60 s'))+'<div style="height:12px"></div>'+bars(grp(v=>v.type==='carrousel'?'Carrousel':'Vidéo'));
+ const A={};V.forEach(v=>{const k=v.ch+'|'+v.platform;(A[k]=A[k]||{p:0,v:0,e:0});A[k].p++;A[k].v+=v.views||0;A[k].e+=(v.likes||0)+(v.comments||0)+(v.shares||0)+(v.saves||0)});
+ const fol=(ch,pl)=>{const h=((data.channels[ch]||{}).followers_history||{})[pl];return h&&h.length?h[h.length-1][1]:null};
+ document.getElementById('acc').innerHTML=`<table class="tbl"><tr><th class="tl">Compte</th><th>Abonnés</th><th>Posts</th><th>Vues</th><th>Engag.</th></tr>`+Object.entries(A).sort((a,b)=>b[1].v-a[1].v).map(([k,a])=>{const[ch,pl]=k.split('|');return `<tr><td>${NM[ch]||ch} · ${pl}</td><td>${fr(fol(ch,pl))}</td><td>${a.p}</td><td>${fr(a.v)}</td><td>${a.v?fr(Math.round(a.e/a.v*1000)/10)+' %':'—'}</td></tr>`}).join('')+'</table>';
+ const FL=[];Object.entries(data.channels).forEach(([k,c])=>{if(AN.ch!=='all'&&AN.ch!==k)return;Object.entries(c.followers_history||{}).forEach(([pl,h])=>{if(AN.pl!=='all'&&AN.pl!==pl)return;FL.push({n:(NM[k]||k)+' · '+pl,h:h.filter(x=>new Date(x[0])>=lim)})})});
+ const fe=document.getElementById('afol');
+ if(!FL.length||!FL.some(f=>f.h.length)){fe.innerHTML='<p style="font-size:13px;color:var(--soft);margin:0">Pas d\'historique d\'abonnés pour ce filtre.</p>'}else{
+  const dates=[...new Set(FL.flatMap(f=>f.h.map(x=>x[0])))].sort(),Wd=700,Hd=200,P=30,mxf=Math.max(1,...FL.flatMap(f=>f.h.map(x=>x[1]))),cols=['#FF5608','#242424','#8A857D','#C9C2B6'];
+  const X=d=>P+(Wd-2*P)*(dates.length>1?dates.indexOf(d)/(dates.length-1):.5),Yv=v=>Hd-P-(Hd-2*P)*v/mxf;
+  let g='';FL.forEach((f,i)=>{if(!f.h.length)return;g+=`<polyline fill="none" stroke="${cols[i%4]}" stroke-width="2.5" points="${f.h.map(x=>X(x[0])+','+Yv(x[1])).join(' ')}"/>`;const l=f.h[f.h.length-1];g+=`<text x="${X(l[0])}" y="${Yv(l[1])-8}" font-size="11" text-anchor="end" fill="${cols[i%4]}">${f.n} · ${fr(l[1])}</text>`});
+  g+=`<text x="${P}" y="${Hd-6}" font-size="11" fill="#8A857D">${dates[0].slice(8,10)}/${dates[0].slice(5,7)}</text><text x="${Wd-P}" y="${Hd-6}" font-size="11" fill="#8A857D" text-anchor="end">${dates[dates.length-1].slice(8,10)}/${dates[dates.length-1].slice(5,7)}</text>`;
+  fe.innerHTML=`<svg viewBox="0 0 ${Wd} ${Hd}" width="100%" role="img" aria-label="Abonnés dans le temps">${g}</svg>`}
+ const C=[['date','Date','tl'],['ch','Chaîne','tl'],['platform','Plateforme','tl'],['title','Vidéo','tl'],['views','Vues'],['likes','Likes'],['shares','Partages'],['saves','Enreg.'],['watch','Regardé (s)'],['completion','Vu en entier']];
+ const R=[...V].sort((a,b)=>{const x=a[AN.sort],y=b[AN.sort];return (x==null)-(y==null)||(x>y?1:x<y?-1:0)*AN.dir});
+ const show=AN.all?R:R.slice(0,25);
+ const cell=(v,k)=>k==='date'?new Date(v.date).toLocaleString('fr-FR',{day:'2-digit',month:'2-digit',hour:'2-digit',minute:'2-digit'}):k==='ch'?(NM[v.ch]||v.ch):k==='completion'?(v.completion==null?'—':fr(Math.round(v.completion*1000)/10)+' %'):k==='title'||k==='platform'?esc(v[k]):fr(v[k]);
+ document.getElementById('atbl').innerHTML=`<table class="tbl"><tr>${C.map(([k,l,c])=>`<th class="${c||''} ${AN.sort===k?'s':''}" data-k="${k}">${l}${AN.sort===k?(AN.dir<0?' ↓':' ↑'):''}</th>`).join('')}</tr>`+show.map(v=>`<tr>${C.map(([k,l,c])=>`<td class="${c||''}">${cell(v,k)}</td>`).join('')}</tr>`).join('')+'</table>';
+ document.querySelectorAll('#atbl th').forEach(th=>th.onclick=()=>{const k=th.dataset.k;AN.dir=AN.sort===k?-AN.dir:-1;AN.sort=k;renderAn()});
+ const mb=document.getElementById('amore');mb.style.display=R.length>25?'inline-block':'none';mb.textContent=AN.all?'Réduire':'Voir les '+R.length+' vidéos';mb.onclick=()=>{AN.all=!AN.all;renderAn()};
+}
+
 function render(){
- const c=data.channels[cur];
  const LBL={piv:'PIV',tamko:'TAMKO',tellr:'TELLR',kess:'KESS'};
- document.getElementById('tabs').innerHTML=Object.entries(data.channels).map(([k,v])=>`<button role="tab" aria-selected="${k===cur}" data-k="${k}">${esc(LBL[k]||v.name.toUpperCase())}</button>`).join('');
+ document.getElementById('tabs').innerHTML=Object.entries(data.channels).map(([k,v])=>`<button role="tab" aria-selected="${k===cur}" data-k="${k}">${esc(LBL[k]||v.name.toUpperCase())}</button>`).join('')+`<button role="tab" aria-selected="${cur==='analyses'}" data-k="analyses">ANALYSES</button>`;
  document.querySelectorAll('#tabs button').forEach(b=>b.onclick=()=>{cur=b.dataset.k;render()});
  document.getElementById('date').textContent=data.date_label;
+ const an=cur==='analyses';document.getElementById('chview').style.display=an?'none':'contents';document.getElementById('anview').style.display=an?'flex':'none';if(an){renderAn();document.getElementById('updated').textContent='Mis à jour le '+new Date(data.updated).toLocaleString('fr-FR',{dateStyle:'long',timeStyle:'short'});return}
+ const c=data.channels[cur];
  document.getElementById('summary').textContent=c.summary||'';
  const al=(data.alerts||[]).filter(a=>a.startsWith(c.name)||!Object.values(data.channels).some(x=>a.startsWith(x.name)));
  document.getElementById('logline').innerHTML=al.length?`<button class="logbar" onclick="const d=document.getElementById('logsec');d.open=true;d.scrollIntoView({behavior:'smooth'})"><span><i></i>PROBLÈME · ${al.length} point${al.length>1?'s':''} à vérifier</span><span>Voir le log →</span></button>`:'<div class="logbar ok"><span><i></i>TOUT EST OK</span></div>';
