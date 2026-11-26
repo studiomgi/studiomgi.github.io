@@ -71,7 +71,7 @@ details{background:var(--card);border-radius:12px;padding:16px 20px}
 summary{cursor:pointer;font-size:14px;font-weight:500;list-style:none;display:flex;justify-content:space-between}summary::after{content:'+';color:var(--acc)}details[open] summary::after{content:'–'}
 .up{display:flex;gap:14px;padding:10px 0;border-top:1px solid var(--line);font-size:14px}.up:first-child{border-top:0}.up b{font-weight:500;min-width:96px}
 footer{font-size:12px;color:var(--mute);text-align:center}
-.chips{display:flex;gap:6px;flex-wrap:wrap}.chips button{min-height:36px;padding:0 14px;border-radius:8px;border:1px solid var(--line);background:#fff;font:inherit;font-size:13px;font-weight:500;color:var(--soft);cursor:pointer}.chips button.on{background:var(--dark);border-color:var(--dark);color:#fff}
+.chips{display:flex;gap:6px;flex-wrap:wrap}.chips button{min-height:36px;padding:0 14px;border-radius:8px;border:1px solid var(--line);background:#fff;font:inherit;font-size:13px;font-weight:500;color:var(--soft);cursor:pointer}.chips button.on{background:var(--acc);border-color:var(--acc);color:var(--ink)}
 .filt{display:flex;flex-direction:column;gap:8px;background:#fff;border-radius:12px;padding:14px}.filt .fl{font-size:11px;font-weight:600;letter-spacing:.6px;text-transform:uppercase;color:var(--mute)}
 .kpis{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}.kpi{background:#fff;border-radius:12px;padding:16px}.kpi .n{font-size:30px;font-weight:300;letter-spacing:-1px}.kpi .l{font-size:12px;color:var(--soft);margin-top:10px}
 .hm{display:grid;grid-template-columns:34px repeat(24,minmax(0,1fr));gap:2px;font-size:10px;color:var(--mute)}.hm i{display:block;aspect-ratio:1;border-radius:2px;background:var(--bg)}
@@ -101,20 +101,7 @@ svg text{font-family:var(--mono)}
 
 <section id="draftsec"><p class="k">Brouillons TikTok à publier</p><div class="panel" id="drafts"></div></section>
 
-<section><h2 id="evo-title">Évolution</h2>
-<div class="grid g2" id="stats"></div>
-<div class="panel" style="margin-top:12px"><div class="ph"><b>Vues par jour</b><span>TikTok · <span style="color:var(--acc)">■</span> meilleur jour</span></div><div id="chart"></div></div>
-</section>
-
-<section id="insec"><p class="k">Ce qui marche</p><h2>Ce que les gens veulent voir</h2>
-<div class="grid g2">
-<div class="panel"><div class="ph"><b id="grpt">Par streamer</b><span>vues moyennes</span></div><div id="streamers"></div></div>
-<div class="panel"><div class="ph"><b>Par format et créneau</b><span>vues moyennes</span></div><div id="formats"></div></div>
-</div>
-<div class="grid" style="margin-top:12px">
-<div class="panel"><div class="ph"><b>Meilleures vidéos</b><span>depuis le lancement</span></div><div id="top"></div></div>
-</div>
-</section>
+<div style="display:none"><div id="stats"></div><div id="chart"></div><section id="insec"><div id="streamers"></div><div id="formats"></div><div id="top"></div><b id="grpt"></b></section></div>
 
 <details id="upsec"><summary>À venir</summary><div id="upcoming" style="margin-top:12px"></div></details>
 <details id="warmsec"><summary>Chauffe TikTok · 10 min</summary><p style="font-size:13px;color:var(--soft);margin:12px 0 4px">Regarde jusqu'au bout, like, enregistre, puis colle ton commentaire en l'adaptant.</p><div id="warm"></div></details>
@@ -123,11 +110,12 @@ svg text{font-family:var(--mono)}
 <div id="anview" style="display:none;flex-direction:column;gap:20px">
 <div class="filt"><span class="fl">Chaîne</span><div class="chips" id="fch"></div><span class="fl">Plateforme</span><div class="chips" id="fpl"></div><span class="fl">Période</span><div class="chips" id="fpe"></div></div>
 <div class="kpis" id="akpi"></div>
-<div class="grid g2"><div class="panel"><div class="ph"><b>Vues par semaine</b><span id="vwsub"></span></div><div id="avw"></div></div><div class="panel"><div class="ph"><b>Publications par semaine</b><span></span></div><div id="apw"></div></div></div>
+<div class="panel"><div class="ph"><b>Vues par semaine</b><span id="vwsub"></span></div><div id="avw"></div></div>
 <div class="panel"><div class="ph"><b>Abonnés</b><span>par compte</span></div><div id="afol"></div></div>
 <div class="panel"><div class="ph"><b>Meilleurs horaires</b><span>vues moyennes · heure de Paris</span></div><div id="ahm"></div><p id="ahmt" style="font-size:12px;color:var(--soft);margin:10px 0 0"></p></div>
 <div class="grid g2"><div class="panel"><div class="ph"><b>Formats</b><span>vues moyennes</span></div><div id="afmt"></div></div><div class="panel"><div class="ph"><b>Comptes</b><span>sur la période</span></div><div class="tw" id="acc"></div></div></div>
-<div class="panel"><div class="ph"><b>Toutes les vidéos</b><span>clique sur une colonne pour trier</span></div><div class="tw" id="atbl"></div><button class="btn ghost" id="amore" style="margin-top:12px">Voir tout</button></div>
+<div id="aininsec" class="grid g2"><div class="panel"><div class="ph"><b id="agrpt">Par streamer</b><span>vues moyennes</span></div><div id="agrp"></div></div><div class="panel"><div class="ph"><b>Meilleures vidéos</b><span>sur la période</span></div><div id="atop"></div></div></div>
+<div class="grid g2"><div class="panel"><div class="ph"><b>Accumulation des vues</b><span>après publication · TikTok</span></div><div id="aacc"></div><p id="aacct" style="font-size:12px;color:var(--soft);margin:10px 0 0"></p></div><div class="panel"><div class="ph"><b>Rythme et engagement</b><span>par semaine · TikTok</span></div><div id="acad"></div><p id="acadt" style="font-size:12px;color:var(--soft);margin:10px 0 0"></p></div></div>
 </div>
 <footer id="updated"></footer>
 </div>
@@ -217,7 +205,6 @@ function renderAn(){
  const W={};V.forEach(v=>{const k=wk(v.date).getTime();(W[k]=W[k]||{v:0,p:0});W[k].v+=v.views||0;W[k].p++});
  const ks=Object.keys(W).sort(),lb=ks.map(k=>new Date(+k).toLocaleDateString('fr-FR',{day:'2-digit',month:'2-digit'}));
  document.getElementById('avw').innerHTML=barSvg(lb,ks.map(k=>W[k].v),'Vues par semaine');
- document.getElementById('apw').innerHTML=barSvg(lb,ks.map(k=>W[k].p),'Publications par semaine');
  document.getElementById('vwsub').textContent='semaine du lundi';
  const days=['Lun','Mar','Mer','Jeu','Ven','Sam','Dim'],H={};
  V.forEach(v=>{const d=new Date(v.date),k=((d.getDay()+6)%7)+'-'+d.getHours();(H[k]=H[k]||[]).push(v.views||0)});
@@ -240,13 +227,30 @@ function renderAn(){
   let g='';FL.forEach((f,i)=>{if(!f.h.length)return;g+=`<polyline fill="none" stroke="${cols[i%4]}" stroke-width="2.5" points="${f.h.map(x=>X(x[0])+','+Yv(x[1])).join(' ')}"/>`;const l=f.h[f.h.length-1];g+=`<text x="${X(l[0])}" y="${Yv(l[1])-8}" font-size="11" text-anchor="end" fill="${cols[i%4]}">${f.n} · ${fr(l[1])}</text>`});
   g+=`<text x="${P}" y="${Hd-6}" font-size="11" fill="#8A857D">${dates[0].slice(8,10)}/${dates[0].slice(5,7)}</text><text x="${Wd-P}" y="${Hd-6}" font-size="11" fill="#8A857D" text-anchor="end">${dates[dates.length-1].slice(8,10)}/${dates[dates.length-1].slice(5,7)}</text>`;
   fe.innerHTML=`<svg viewBox="0 0 ${Wd} ${Hd}" width="100%" role="img" aria-label="Abonnés dans le temps">${g}</svg>`}
- const C=[['date','Date','tl'],['ch','Chaîne','tl'],['platform','Plateforme','tl'],['title','Vidéo','tl'],['views','Vues'],['likes','Likes'],['shares','Partages'],['saves','Enreg.'],['watch','Regardé (s)'],['completion','Vu en entier']];
- const R=[...V].sort((a,b)=>{const x=a[AN.sort],y=b[AN.sort];return (x==null)-(y==null)||(x>y?1:x<y?-1:0)*AN.dir});
- const show=AN.all?R:R.slice(0,25);
- const cell=(v,k)=>k==='date'?new Date(v.date).toLocaleString('fr-FR',{day:'2-digit',month:'2-digit',hour:'2-digit',minute:'2-digit'}):k==='ch'?(NM[v.ch]||v.ch):k==='completion'?(v.completion==null?'—':fr(Math.round(v.completion*1000)/10)+' %'):k==='title'||k==='platform'?esc(v[k]):fr(v[k]);
- document.getElementById('atbl').innerHTML=`<table class="tbl"><tr>${C.map(([k,l,c])=>`<th class="${c||''} ${AN.sort===k?'s':''}" data-k="${k}">${l}${AN.sort===k?(AN.dir<0?' ↓':' ↑'):''}</th>`).join('')}</tr>`+show.map(v=>`<tr>${C.map(([k,l,c])=>`<td class="${c||''}">${cell(v,k)}</td>`).join('')}</tr>`).join('')+'</table>';
- document.querySelectorAll('#atbl th').forEach(th=>th.onclick=()=>{const k=th.dataset.k;AN.dir=AN.sort===k?-AN.dir:-1;AN.sort=k;renderAn()});
- const mb=document.getElementById('amore');mb.style.display=R.length>25?'inline-block':'none';mb.textContent=AN.all?'Réduire':'Voir les '+R.length+' vidéos';mb.onclick=()=>{AN.all=!AN.all;renderAn()};
+ const single=AN.ch!=='all'?data.channels[AN.ch]:null,ins=single&&single.insights;
+ document.getElementById('aininsec').style.display=single?'grid':'none';
+ if(single){document.getElementById('agrpt').textContent=(ins&&ins.groups_title)||'Par streamer';document.getElementById('agrp').innerHTML=bars(ins&&ins.streamers);}
+ document.getElementById('atop').innerHTML=[...V].sort((a,b)=>(b.views||0)-(a.views||0)).slice(0,5).map((v,i)=>`<div class="vid"><span class="r">${i+1}</span><span>${esc(v.title)}<small>${NM[v.ch]||v.ch} · ${v.platform} · ${new Date(v.date).toLocaleDateString('fr-FR',{day:'2-digit',month:'2-digit'})}</small></span><span class="v">${fr(v.views)}</span></div>`).join('');
+ const AC=Object.entries(data.channels).filter(([k,c])=>(AN.ch==='all'||AN.ch===k)&&c.accumulation&&c.accumulation.points);
+ const ae=document.getElementById('aacc');
+ if(!AC.length){ae.innerHTML='<p style="font-size:13px;color:var(--soft);margin:0">Pas encore de données pour ce filtre.</p>';document.getElementById('aacct').textContent=''}else{
+  const lbs=AC[0][1].accumulation.points.map(p=>p[0]),nT=AC.reduce((a,[k,c])=>a+(c.accumulation.n||1),0);
+  const pts=lbs.map((l,i)=>Math.round(AC.reduce((a,[k,c])=>a+(c.accumulation.points[i]?c.accumulation.points[i][1]:0)*(c.accumulation.n||1),0)/nT));
+  const W2=700,H2=200,P2=30,X=i=>P2+(W2-2*P2)*i/(lbs.length-1),Y=v=>H2-P2-(H2-2*P2)*v/100;
+  let g=[50,80].map(v=>`<line x1="${P2}" x2="${W2-P2}" y1="${Y(v)}" y2="${Y(v)}" stroke="#E4DED3" stroke-dasharray="4 4"/><text x="${W2-P2}" y="${Y(v)-4}" font-size="11" fill="#8A857D" text-anchor="end">${v} %</text>`).join('');
+  g+=`<polygon fill="rgba(255,86,8,.12)" points="${X(0)},${Y(0)} ${pts.map((v,i)=>X(i)+','+Y(v)).join(' ')} ${X(lbs.length-1)},${Y(0)}"/><polyline fill="none" stroke="#FF5608" stroke-width="2.5" points="${pts.map((v,i)=>X(i)+','+Y(v)).join(' ')}"/>`;
+  g+=pts.map((v,i)=>`<circle cx="${X(i)}" cy="${Y(v)}" r="4" fill="#FF5608"/><text x="${X(i)}" y="${Y(v)-9}" font-size="11" fill="#5E5A54" text-anchor="middle">${v} %</text><text x="${X(i)}" y="${H2-6}" font-size="11" fill="#8A857D" text-anchor="middle">${lbs[i]}</text>`).join('');
+  ae.innerHTML=`<svg viewBox="0 0 ${W2} ${H2}" width="100%" role="img" aria-label="Accumulation des vues">${g}</svg>`;
+  const f80=lbs.find((l,i)=>pts[i]>=80);document.getElementById('aacct').textContent=(f80?`80 % des vues atteintes dès « ${f80} »`:'')+` · calculé sur ${nT} vidéo${nT>1?'s':''}`;
+ }
+ const TT=allVids().filter(v=>v.platform==='TikTok'&&(AN.ch==='all'||v.ch===AN.ch)&&new Date(v.date)>=lim),CW={};
+ TT.forEach(v=>{const k=v.ch+'|'+wk(v.date).getTime();(CW[k]=CW[k]||{n:0,vw:0,e:0});CW[k].n++;CW[k].vw+=v.views||0;CW[k].e+=(v.likes||0)+(v.comments||0)+(v.shares||0)+(v.saves||0)});
+ const BK=[['1-5/sem',1,5],['6-10/sem',6,10],['11-20/sem',11,20],['21+/sem',21,999]].map(([l,a,b])=>{const ws=Object.values(CW).filter(w=>w.n>=a&&w.n<=b),vw=ws.reduce((x,w)=>x+w.vw,0),e=ws.reduce((x,w)=>x+w.e,0);return {label:l,value:vw?Math.round(e/vw*1000)/10:null,n:ws.length}}).filter(b=>b.value!=null);
+ const ce=document.getElementById('acad');
+ if(!BK.length){ce.innerHTML='<p style="font-size:13px;color:var(--soft);margin:0">Pas encore de données.</p>';document.getElementById('acadt').textContent=''}else{
+  const mxB=Math.max(...BK.map(b=>b.value));ce.innerHTML=BK.map(b=>`<div class="br ${b.value===mxB?'top':''}"><span>${b.label}<small>${b.n} semaine${b.n>1?'s':''}</small></span><span class="bar"><i style="width:${Math.round(b.value/mxB*100)}%"></i></span><span class="v">${fr(b.value)} %</span></div>`).join('');
+  const best=BK.find(b=>b.value===mxB);document.getElementById('acadt').textContent=`Meilleur engagement : ${best.label} (${fr(best.value)} %)`;
+ }
 }
 
 function render(){
